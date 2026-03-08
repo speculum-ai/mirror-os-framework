@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- PWA / Add to Home Screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mirror OS JP">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0a1023">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Mirror+OS+%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%22%2C%22short_name%22%3A%22Mirror+OS%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230a1023%22%2C%22theme_color%22%3A%22%230a1023%22%2C%22start_url%22%3A%22.%22%7D">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirror OS · Enterprise AI Governance Adoption Framework v3.1</title>
+
+<style>
+:root {
+  /* ── Aligned to speculum.ai website palette ── */
+  --bg:        #0f172a;   /* website surface-800  — lifted from #0f172a */
+  --surface:   #1e293b;   /* website surface-700  — card base           */
+  --surface2:  #253349;   /* slightly above card  — modal, raised cards  */
+  --surface3:  #2d3f5a;   /* hover / active state                        */
+  --border:    rgba(255,255,255,0.09);
+  --border-md: rgba(255,255,255,0.15);
+  --text:      #f8fafc;   /* website text-primary — was #d8dce8          */
+  --muted:     #94a3b8;   /* website text-secondary — was #52586a        */
+  --subtle:    #475569;   /* website surface-500                         */
+
+  /* Layer accents — matched to website vibrancy */
+  --l1: #3b82f6;  --l1-mid: rgba(59,130,246,0.15); --l1-glow: rgba(59,130,246,0.28);
+  --l2: #10b981;  --l2-mid: rgba(16,185,129,0.13); --l2-glow: rgba(16,185,129,0.24);
+  --l3: #f59e0b;  --l3-mid: rgba(245,158,11,0.13); --l3-glow: rgba(245,158,11,0.24);
+  --l4: #8b5cf6;  --l4-mid: rgba(139,92,246,0.13); --l4-glow: rgba(139,92,246,0.26);
+  --rail:#7c3aed; --rail-mid:rgba(124,58,237,0.10);
+
+  --ease: cubic-bezier(.4,0,.2,1);
+  --t: 0.2s;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+  min-height: 100vh;
+  padding: 60px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ════ NOISE TEXTURE ════ */
+body::before {
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+
+/* ════ HEADER ════ */
+.hdr {
+  text-align:center;
+  max-width:680px;
+  margin-bottom:52px;
+  position:relative;z-index:1;
+}
+.hdr-eyebrow {
+  font-family:'Courier New',monospace;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:22px;
+}
+
+.opening {
+  max-width:560px;
+  margin:0 auto 28px;
+  padding:22px 30px;
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(255,255,255,0.018),rgba(255,255,255,0.006));
+  position:relative;
+  overflow:hidden;
+}
+.opening::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(109,68,212,0.4),transparent);
+}
+.opening-line1 {
+  font-family:Georgia,serif;
+  font-size:clamp(15px,2.2vw,18px);
+  font-weight:300;color:#7a8299;
+  line-height:1.5;letter-spacing:0.01em;
+}
+.opening-line2 {
+  font-family:Georgia,serif;
+  font-size:clamp(16px,2.4vw,20px);
+  font-weight:400;font-style:italic;
+  color:#bcc4dc;line-height:1.5;
+  margin-top:6px;letter-spacing:0.01em;
+}
+
+.hdr h1 {
+  font-family:Georgia,serif;
+  font-size:clamp(26px,4vw,44px);
+  font-weight:300;line-height:1.16;
+  color:#e4e8f4;letter-spacing:-0.01em;
+  margin-bottom:12px;
+}
+.hdr h1 em{font-style:italic;color:#a5b4fc;}
+
+.hdr-sub {
+  font-size:13px;color:var(--muted);
+  line-height:1.7;font-weight:300;
+  max-width:480px;margin:0 auto 18px;
+}
+
+.slogan {
+  font-family:'Courier New',monospace;
+  font-size:10px;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--l4);opacity:0.7;
+}
+
+/* ════ PATHWAY BAR ════ */
+.pathway-bar {
+  display:flex;gap:6px;margin-bottom:36px;
+  flex-wrap:wrap;justify-content:center;align-items:center;
+  position:relative;z-index:1;
+}
+.p-label {
+  font-family:'Courier New',monospace;
+  font-size:9px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted);margin-right:4px;
+}
+.p-btn {
+  font-family:'Courier New',monospace;font-size:10px;
+  letter-spacing:0.08em;padding:6px 14px;border-radius:20px;
+  border:1px solid var(--border-md);background:var(--surface);
+  color:var(--muted);cursor:pointer;transition:all var(--t) var(--ease);
+  white-space:nowrap;
+}
+.p-btn:hover{border-color:rgba(255,255,255,0.18);color:var(--text);}
+.p-btn.active{background:var(--surface3);color:var(--text);border-color:rgba(255,255,255,0.2);}
+.p-btn.clear{border-color:transparent;background:transparent;color:#444;}
+.p-btn.clear:hover{color:var(--muted);border-color:var(--border);}
+
+/* ════ LADDER ════ */
+.ladder{
+  width:100%;max-width:980px;
+  display:flex;flex-direction:column;gap:0;
+  position:relative;z-index:1;
+}
+
+.layer-row{display:flex;flex-direction:column;align-items:center;width:100%;}
+
+.layer-meta{
+  display:flex;align-items:center;gap:10px;
+  align-self:flex-start;margin-bottom:9px;padding-left:2px;
+}
+.layer-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.layer-num{
+  font-family:'Courier New',monospace;
+  font-size:13px;letter-spacing:0.16em;color:var(--muted);opacity:0.6;
+}
+.layer-name{
+  font-family:'Courier New',monospace;
+  font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+}
+
+/* Arrow connector */
+.connector{
+  display:flex;flex-direction:column;align-items:center;
+  padding:8px 0 4px;gap:1px;opacity:0.18;
+}
+.conn-line{width:1px;height:22px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.5),transparent);}
+.conn-tip{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid rgba(255,255,255,0.4);}
+
+/* Card grid widths — converging pyramid */
+.grid{display:flex;gap:8px;width:100%;justify-content:center;}
+.grid-l4{max-width:400px;}
+.grid-l3{max-width:640px;}
+.grid-l2{max-width:980px;}
+.grid-l1{max-width:980px;}
+
+/* ════ CARD ════ */
+.card{
+  flex:1;min-width:0;
+  border-radius:11px;
+  padding:20px 18px 42px; /* extra bottom for tooltip space */
+  cursor:pointer;
+  position:relative;
+  border:1px solid rgba(71,85,105,0.45);
+  background:var(--surface);
+  transition:transform var(--t) var(--ease),
+             box-shadow var(--t) var(--ease),
+             border-color var(--t) var(--ease),
+             background var(--t) var(--ease),
+             opacity var(--t) var(--ease);
+  overflow:hidden;
+}
+
+/* top glow line */
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  opacity:0;transition:opacity var(--t);
+}
+.card:hover::before,.card.hi::before{opacity:1;}
+
+/* Color theming per layer */
+.card-l1{--cc:var(--l1);--cm:var(--l1-mid);--cg:var(--l1-glow);}
+.card-l2{--cc:var(--l2);--cm:var(--l2-mid);--cg:var(--l2-glow);}
+.card-l3{--cc:var(--l3);--cm:var(--l3-mid);--cg:var(--l3-glow);}
+.card-l4{--cc:var(--l4);--cm:var(--l4-mid);--cg:var(--l4-glow);}
+
+.card::before{background:linear-gradient(90deg,transparent,var(--cc),transparent);}
+
+.card:hover,.card.hi{
+  transform:translateY(-3px);
+  border-color:color-mix(in srgb,var(--cc) 32%,transparent);
+  background:color-mix(in srgb,var(--cc) 4%,var(--surface));
+  box-shadow:0 10px 32px color-mix(in srgb,var(--cc) 14%,transparent);
+}
+.card.dim{opacity:0.18;filter:saturate(0.2);}
+
+/* Card content */
+.card-icon{font-size:16px;margin-bottom:12px;display:block;color:var(--cc);}
+.card-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:5px;}
+.card-body{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300;}
+
+/* Hover tooltip slide up */
+.card-tip{
+  position:absolute;bottom:0;left:0;right:0;
+  background:color-mix(in srgb,var(--cc) 9%,var(--surface2));
+  border-top:1px solid color-mix(in srgb,var(--cc) 16%,transparent);
+  padding:9px 14px;
+  font-size:12px;
+  color:color-mix(in srgb,var(--cc) 65%,var(--text));
+  line-height:1.55;font-weight:300;
+  transform:translateY(100%);
+  transition:transform var(--t) var(--ease);
+  pointer-events:none;
+}
+.card:hover .card-tip{transform:translateY(0);}
+
+.card-chevron{
+  position:absolute;top:14px;right:14px;
+  font-size:11px;color:var(--muted);opacity:0;
+  transition:opacity var(--t);
+}
+.card:hover .card-chevron{opacity:0.5;}
+
+/* ════ ALWAYS-ON BASELINE ════ */
+.baseline{
+  margin-top:18px;width:100%;max-width:980px;
+  border:1px solid rgba(90,68,144,0.22);
+  background:var(--rail-mid);
+  border-radius:11px;padding:18px 24px;
+  position:relative;overflow:hidden;
+}
+.baseline::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(109,68,212,0.3),transparent);
+}
+.baseline-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
+.baseline-title{
+  font-family:'Courier New',monospace;
+  font-size:14px;letter-spacing:0.18em;text-transform:uppercase;
+  color:#a78bfa;
+}
+.baseline-pills{display:flex;gap:3px;flex-wrap:nowrap;}
+.b-pill-wrap{
+  position:relative;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.b-pill{
+  font-family:'Courier New',monospace;font-size:13px;letter-spacing:0.02em;
+  padding:5px 10px;border-radius:20px;
+  background:rgba(90,68,144,0.25);border:1px solid rgba(90,68,144,0.45);
+  color:#fbbf24;
+  cursor:default;
+  transition:background var(--t) var(--ease), border-color var(--t) var(--ease), color var(--t) var(--ease);
+}
+.b-pill-wrap:hover .b-pill{
+  background:rgba(139,92,246,0.35);
+  border-color:rgba(139,92,246,0.65);
+  color:#fde68a;
+}
+.b-explain{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  font-size:12px;
+  color:#94a3b8;
+  font-weight:400;
+  line-height:1.6;
+  padding:0 4px;
+  max-width:260px;
+  transition:max-height 0.28s var(--ease), opacity 0.22s var(--ease), padding 0.2s var(--ease);
+}
+.b-pill-wrap:hover .b-explain{
+  max-height:60px;
+  opacity:1;
+  padding:5px 4px 0;
+}
+.baseline-quote{
+  font-size:12px;color:#94a3b8;
+  font-weight:400;line-height:1.6;
+}
+
+/* ════ MODAL ════ */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.78);
+  backdrop-filter:blur(10px) saturate(0.8);
+  z-index:500;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.22s var(--ease);
+}
+.overlay.open{opacity:1;pointer-events:all;}
+
+.modal{
+  background:#1e293b;
+  border:1px solid rgba(71,85,105,0.5);
+  border-radius:16px;
+  width:100%;max-width:600px;
+  max-height:90vh;overflow-y:auto;
+  padding:38px 34px 32px;
+  position:relative;
+  box-shadow:0 50px 120px rgba(0,0,0,0.8);
+  transform:translateY(12px) scale(0.97);
+  transition:transform 0.24s var(--ease);
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,0.06) transparent;
+}
+.overlay.open .modal{transform:translateY(0) scale(1);}
+
+.modal-close{
+  position:absolute;top:18px;right:18px;
+  width:30px;height:30px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:7px;color:var(--muted);font-size:12px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all var(--t);
+}
+.modal-close:hover{background:rgba(255,255,255,0.09);color:var(--text);}
+
+/* modal top bar accent */
+.modal-accent{
+  position:absolute;top:0;left:0;right:0;height:2px;
+  border-radius:16px 16px 0 0;
+}
+
+.m-layer{
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.m-title{
+  font-family:Georgia,serif;
+  font-size:32px;font-weight:300;line-height:1.18;
+  margin-bottom:10px;color:#e4e8f4;
+}
+.m-why{
+  font-size:15px;color:#6e7788;line-height:1.72;font-weight:300;
+  margin-bottom:26px;padding-bottom:22px;
+  border-bottom:1px solid var(--border);
+}
+
+.m-sec{margin-bottom:22px;}
+.m-sec-title{
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:11px;
+}
+
+/* Product rows */
+.p-row{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 14px;border-radius:9px;
+  border:1px solid rgba(71,85,105,0.45);
+  background:rgba(255,255,255,0.018);
+  margin-bottom:6px;
+}
+.p-ico{font-size:15px;flex-shrink:0;margin-top:1px;}
+.p-info{flex:1;min-width:0;}
+.p-name{
+  font-family:'Courier New',monospace;
+  font-size:13.5px;font-weight:500;margin-bottom:3px;
+}
+.p-desc{font-size:14px;color:var(--muted);line-height:1.55;font-weight:300;}
+.p-badge{
+  flex-shrink:0;
+  font-family:'Courier New',monospace;
+  font-size:9.5px;letter-spacing:0.09em;text-transform:uppercase;
+  padding:3px 8px;border-radius:4px;align-self:flex-start;white-space:nowrap;
+}
+.b-prod{background:rgba(31,140,114,0.1);color:#1f8c72;border:1px solid rgba(31,140,114,0.22);}
+.b-eco{background:rgba(251,191,36,0.08);color:#f59e0b;border:1px solid rgba(251,191,36,0.25);}
+.b-dual{display:none;}
+.b-svc {background:rgba(47,95,212,0.1); color:#6b8fe0;border:1px solid rgba(47,95,212,0.22);}
+.b-jnt {background:rgba(156,110,26,0.1);color:#c08a28;border:1px solid rgba(156,110,26,0.22);}
+
+.m-box{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(71,85,105,0.45);border-radius:9px;
+  padding:14px 16px;font-size:14px;
+  color:#8a94aa;line-height:1.72;font-weight:300;
+}
+.m-up{
+  background:rgba(109,68,212,0.05);
+  border:1px solid rgba(109,68,212,0.14);
+  border-radius:9px;padding:12px 16px;
+  font-family:'Courier New',monospace;
+  font-size:13px;letter-spacing:0.02em;
+  color:rgba(139,92,246,0.7);line-height:1.6;
+}
+
+/* ════ CLOSING STATEMENT ════ */
+.closing-stmt {
+  margin-top: 28px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: clamp(14px, 1.9vw, 17px);
+  font-weight: 300;
+  color: #4a5068;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  position: relative; z-index: 1;
+}
+.closing-stmt em {
+  font-style: italic;
+  color: #5c6480;
+}
+
+/* ════ FOOTER ════ */
+.foot{
+  margin-top:16px;text-align:center;
+  font-family:'Courier New',monospace;
+  font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;
+  color:#94a3b8;
+  position:relative;z-index:1;
+}
+
+/* ── Emory Layer Illumination ── */
+@keyframes card-blink {
+  0%,100% { opacity:0.55; filter:saturate(0.35); }
+  50%      { opacity:0.85; filter:saturate(0.75); }
+}
+.card.half{
+  animation: card-blink 2.2s ease-in-out infinite;
+}
+.card.hi{
+  opacity:1;
+  filter:saturate(1);
+}
+
+/* Layer row lit states */
+.layer-row{transition:opacity 0.35s ease;}
+.layer-row.row-dim   { opacity:0.22; }
+.layer-row.row-half  { animation: row-blink 2.2s ease-in-out infinite; }
+@keyframes row-blink {
+  0%,100% { opacity:0.30; }
+  50%      { opacity:0.70; }
+}
+.layer-row.row-lit   { opacity:1; }
+
+/* Layer dot pulse on lit */
+.layer-row.row-lit .layer-dot{
+  box-shadow:0 0 10px 3px currentColor;
+}
+.layer-row.row-lit .layer-name,
+.layer-row.row-lit .layer-num{
+  opacity:1;
+}
+.layer-row.row-half .layer-name,
+.layer-row.row-half .layer-num{
+  opacity:0.6;
+}
+
+
+
+
+
+
+/* ── Mirror OS Model Overlay v3.15-JP ── */
+#mod-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(8,12,22,0.88);
+  backdrop-filter:blur(2px);
+  overflow-y:auto;
+  padding:40px 24px 60px;
+  box-sizing:border-box;
+}
+#mod-overlay.visible{ display:block; }
+
+.mo-header{
+  text-align:center;
+  margin-bottom:32px;
+}
+.mo-title{
+  font-size:21px;letter-spacing:0.18em;text-transform:uppercase;
+  font-family:'Courier New',monospace;
+  color:rgba(56,189,248,0.8);
+  margin-bottom:6px;
+}
+.mo-subtitle{
+  font-size:34px;font-weight:700;
+  color:rgba(255,255,255,0.9);
+  letter-spacing:-0.01em;
+}
+.mo-close{
+  position:fixed;top:20px;right:24px;
+  padding:8px 18px;border-radius:20px;
+  background:rgba(56,189,248,0.08);
+  border:1px solid rgba(56,189,248,0.4);
+  color:rgba(56,189,248,0.85);
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.07em;text-transform:uppercase;
+  cursor:pointer;
+  display:flex;align-items:center;gap:7px;
+  transition:all 0.2s;z-index:1001;
+  white-space:nowrap;
+}
+.mo-close:hover{
+  background:rgba(56,189,248,0.15);
+  border-color:rgba(56,189,248,0.75);
+  color:#38bdf8;
+}
+
+.mo-layer{
+  margin-bottom:28px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.07);
+  overflow:hidden;
+}
+.mo-layer-header{
+  padding:12px 20px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.mo-layer-num{
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  opacity:0.5;
+}
+.mo-layer-name{
+  font-size:15px;font-weight:600;
+  letter-spacing:0.01em;
+}
+.mo-modules{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1px;
+  background:rgba(255,255,255,0.04);
+}
+.mo-module{
+  background:#0d1424;
+  padding:16px 18px;
+  transition:background 0.15s;
+}
+.mo-module:hover{ background:#111827; }
+.mo-mod-top{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:7px;
+}
+.mo-dot{
+  width:7px;height:7px;border-radius:50%;flex-shrink:0;
+}
+.mo-dot.ctrl{ background:#60a5fa;box-shadow:0 0 5px rgba(96,165,250,0.6); }
+.mo-dot.evid{ background:#34d399;box-shadow:0 0 5px rgba(52,211,153,0.6); }
+.mo-dot.ops { background:#fb923c;box-shadow:0 0 5px rgba(251,146,60,0.6); }
+.mo-dot.intl{ background:#a78bfa;box-shadow:0 0 5px rgba(167,139,250,0.6); }
+
+.mo-mod-name{
+  font-family:'Courier New',monospace;
+  font-size:13px;font-weight:600;letter-spacing:0.02em;
+  color:rgba(226,232,240,0.9);
+}
+.mo-mod-role{
+  font-size:13.5px;line-height:1.5;
+  color:rgba(148,163,184,0.7);
+}
+
+.mo-legend{
+  display:flex;justify-content:center;gap:20px;
+  margin-top:28px;flex-wrap:wrap;
+}
+.mo-leg-item{
+  display:flex;align-items:center;gap:6px;
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+  color:rgba(148,163,184,0.45);
+}
+
+.mo-trigger{
+  display:inline-flex;align-items:center;gap:7px;
+  margin-top:10px;
+  padding:7px 16px;border-radius:20px;
+  border:1px solid rgba(56,189,248,0.45);
+  background:rgba(56,189,248,0.07);
+  color:rgba(56,189,248,0.85);
+  font-family:'Courier New',monospace;
+  font-size:16px;letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;transition:all 0.2s;
+}
+.mo-trigger:hover{
+  border-color:rgba(56,189,248,0.85);
+  background:rgba(56,189,248,0.14);
+  color:#38bdf8;
+}
+.mo-trigger-icon{ font-size:13px; }
+
+</style>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      const swCode = `
+        const CACHE = 'mirror-os-jp-v3.20.1';
+        self.addEventListener('install', e => {
+          e.waitUntil(caches.open(CACHE).then(c => c.addAll([location.pathname || '/'])));
+          self.skipWaiting();
+        });
+        self.addEventListener('fetch', e => {
+          e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match(e.request))));
+        });
+      `;
+      const blob = new Blob([swCode], {type: 'application/javascript'});
+      navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
+    }
+  </script>
+
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="hdr">
+  <div class="hdr-eyebrow">Mirror OS · Speculum AI · ガバナンス導入フレームワーク</div>
+
+  <h1><em>安全な導入</em>から<br>エンタープライズAIガバナンスへ</h1>
+  <p class="hdr-sub">今必要な問いから始め、やがて必要になる統制基盤へと育てていく。</p>
+  <div class="slogan">Secure by Design &nbsp;·&nbsp; Governed by Default</div>
+  <div style="text-align:center;margin-top:12px;">
+    <button class="mo-trigger" onclick="showModuleOverlay()">
+      <span class="mo-trigger-icon">⬡</span>
+      Mirror OS &nbsp;·&nbsp; 各レイヤーのモジュール
+    </button>
+  </div>
+</div>
+
+<!-- ══ PATHWAY BAR ══ -->
+<div class="pathway-bar">
+  <span class="p-label">Highlight path →</span>
+  <button class="p-btn" id="pb-safety"   onclick="setPath('safety')">安全性から始める</button>
+  <button class="p-btn" id="pb-cost"     onclick="setPath('cost')">コストから始める</button>
+  <button class="p-btn" id="pb-evidence" onclick="setPath('evidence')">証跡から始める</button>
+  <button class="p-btn" id="pb-scoping"  onclick="setPath('scoping')">スコーピングから始める</button>
+  <button class="p-btn clear"            onclick="clearPath()">Clear</button>
+</div>
+
+<!-- ══ LADDER ══ -->
+<div class="ladder">
+
+  <!-- LAYER 4 -->
+  <div class="layer-row" id="lr-4">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l4)"></div>
+      <span class="layer-num">レイヤー 4</span>
+      <span class="layer-name">エンタープライズAIガバナンス</span>
+    </div>
+    <div class="grid grid-l4">
+      <div class="card card-l4" id="c-gov" onclick="open_modal('gov')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">⬡</span>
+        <div class="card-title">エンタープライズAIガバナンス</div>
+        <div class="card-body">すべてのAI施策に一貫した統制・証跡・説明責任を。</div>
+        <div class="card-tip">すべての入口はここへ収束します。エージェント・モデル・部門を横断する、統合された信頼・統制・証跡基盤。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="conn-line"></div><div class="conn-tip"></div></div>
+
+  <!-- LAYER 3 -->
+  <div class="layer-row" id="lr-3">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l3)"></div>
+      <span class="layer-num">レイヤー 3</span>
+      <span class="layer-name">ランタイム・ガバナンス</span>
+    </div>
+    <div class="grid grid-l3">
+      <div class="card card-l3" id="c-policy" onclick="open_modal('policy')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◈</span>
+        <div class="card-title">ポリシー実行統制</div>
+        <div class="card-body">ポリシーを文書から実行時の挙動へと転換します。</div>
+        <div class="card-tip">ポリシー違反時に実際に停止・エスカレーション・再ルーティングするエージェント。事後のダッシュボード通知ではありません。</div>
+      </div>
+      <div class="card card-l3" id="c-trace" onclick="open_modal('trace')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◈</span>
+        <div class="card-title">運用トレーサビリティ</div>
+        <div class="card-body">すべてのAI判断と行動に、責任の連鎖を記録します。</div>
+        <div class="card-tip">どのモデル・ポリシー・文脈で、誰が権限を持っていたか。すべての判断をオンデマンドで再構成できます。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="conn-line"></div><div class="conn-tip"></div></div>
+
+  <!-- LAYER 2 -->
+  <div class="layer-row" id="lr-2">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l2)"></div>
+      <span class="layer-num">レイヤー 2</span>
+      <span class="layer-name">パイロットとAI基盤</span>
+    </div>
+    <div class="grid grid-l2">
+      <div class="card card-l2" id="c-pilot" onclick="open_modal('pilot')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Pilot Assurance</div>
+        <div class="card-body">技術的に動くだけでなく、承認可能なパイロットを実現します。</div>
+        <div class="card-tip">社内審査を通過し、ガバナンス証跡を生成し、拡張の基盤となるよう設計されています。</div>
+      </div>
+      <div class="card card-l2" id="c-data" onclick="open_modal('data')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">データ準備性</div>
+        <div class="card-body">AIが本番に触れる前に、データ所有権・リネージ・版管理を整えます。</div>
+        <div class="card-tip">AIパイロット失敗の最大要因はモデル性能ではなく、未解決のデータ来歴です。</div>
+      </div>
+      <div class="card card-l2" id="c-model" onclick="open_modal('model')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">モデル戦略</div>
+        <div class="card-body">モデル選定・ルーティング戦略・エージェント設計を統合します。</div>
+        <div class="card-tip">タスクに最適なモデルを、ガバナンス複雑性を増やさないルーティング設計で実現します。</div>
+      </div>
+      <div class="card card-l2" id="c-compute" onclick="open_modal('compute')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">計算資源・コスト設計</div>
+        <div class="card-body">初日からの計算資源計画・推論ルーティング・コスト制御。</div>
+        <div class="card-tip">コスト設計なきAIパイロットは管理不能な消費を生み、ガバナンスが必要になる前に経営支援を失います。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="conn-line"></div><div class="conn-tip"></div></div>
+
+  <!-- LAYER 1 -->
+  <div class="layer-row" id="lr-1">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l1)"></div>
+      <span class="layer-num">レイヤー 1</span>
+      <span class="layer-name">安全に始める</span>
+    </div>
+    <div class="grid grid-l1">
+      <div class="card card-l1" id="c-start" onclick="open_modal('start')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">どこから始めるべきか？</div>
+        <div class="card-body">コスト・リスク・責任が曖昧になる前に、スコープを明確にします。</div>
+        <div class="card-tip">ほとんどのチームが失敗するのは、モデルが弱いからではなく、最初のユースケースのスコープが不適切だからです。</div>
+      </div>
+      <div class="card card-l1" id="c-safe" onclick="open_modal('safe')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">安全性は確保できるか？</div>
+        <div class="card-body">パイロットが実運用に達する前に、ワークフローの問題点を明らかにします。</div>
+        <div class="card-tip">想定外の挙動が起きたとき何が起こるか、誰が止めるか。本番前にこれに答えることが、責任ある導入と事故の境界です。</div>
+      </div>
+      <div class="card card-l1" id="c-cost" onclick="open_modal('cost')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">コストがかかりすぎないか？</div>
+        <div class="card-body">実験が管理不能なコスト消費になる前に、支出を制御します。</div>
+        <div class="card-tip">AI導入における最初の実務上の障壁はモデル性能ではなく、コストとROIの検証です。</div>
+      </div>
+      <div class="card card-l1" id="c-prove" onclick="open_modal('prove')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">証明できるか？</div>
+        <div class="card-body">監査後に再構成するのではなく、初日から証跡を取得します。</div>
+        <div class="card-tip">規制産業に必要なのは出力だけでなく証跡です。監査が来たとき、すべてのエージェント行動を再構成できなければなりません。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BASELINE -->
+  <div class="baseline">
+    <div class="baseline-top">
+      <span class="baseline-title">常時適用されるガバナンス基準</span>
+      <div class="baseline-pills">
+        <div class="b-pill-wrap">
+          <span class="b-pill">ポリシー基準</span>
+          <div class="b-explain">すべてのAI施策は、暗黙の前提ではなく、明示された運用境界から始めるべきです。</div>
+        </div>
+        <div class="b-pill-wrap">
+          <span class="b-pill">トレースと証跡</span>
+          <div class="b-explain">問題発生後ではなく、初日から監査可能性を確保します。</div>
+        </div>
+        <div class="b-pill-wrap">
+          <span class="b-pill">停止／エスカレーション</span>
+          <div class="b-explain">リスクが高まった際に、中断・封じ込め・引き継ぎができる制御点がAIシステムには必要です。</div>
+        </div>
+        <div class="b-pill-wrap">
+          <span class="b-pill">人間の権限</span>
+          <div class="b-explain">重要な意思決定では、人間の明確な説明責任と介入権限を維持しなければなりません。</div>
+        </div>
+      </div>
+    </div>
+    <div class="baseline-quote">
+      これらの基準コントロールは、最初のパイロットからエンタープライズガバナンスまで、あらゆる取り組みに一貫して適用されます。
+    </div>
+  </div>
+
+</div><!-- /ladder -->
+
+<div class="closing-stmt" style="color:#f97316;font-weight:700;font-style:normal;">AI導入が失敗する理由はモデルではありません。組織にコントロールシステムが欠けているからです。</div>
+
+<div class="foot">Mirror OS · Speculum AI · 機密GTM資料 · v3.15-JP</div>
+
+<!-- ══ MODAL ══ -->
+<div class="overlay" id="overlay" onclick="handle_overlay(event)">
+  <div class="modal" id="modal">
+    <div class="modal-accent" id="modal-accent"></div>
+    <button class="modal-close" onclick="close_modal()">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+/* ─── DATA ─── */
+const D = {
+
+  /* LAYER 1 */
+  start:{
+    layer:'レイヤー 1 · 安全に始める', cc:'var(--l1)',
+    title:'どこから始めるべきか？',
+    why:'多くのAI施策は、モデルが誤っているから失敗するのではありません。最初のユースケース選定で、スコープが曖昧であり、成功基準が定義されておらず、関与すべき関係者が適切でないことが原因です。導入前にこれを正しく設計できるかどうかが、成果と空振りを分けます。',
+    products:[
+      {ico:'🔍',name:'Pilot Readiness Review',  desc:'最初のAIユースケースについて、スコープの明確性・ステークホルダー整合・承認経路・測定可能な成功基準を評価します。',badge:'svc'},
+      {ico:'🗺️',name:'AI Initiative Scoping',   desc:'最初の実践的AI施策を共同設計します。ワークフロー選定・リスク分類・社内整合フレームワークを含みます。',badge:'svc'},
+      {ico:'📐',name:'ROI Framing',             desc:'パイロット開始前に測定可能な成功指標を整理します。社内ビジネスケースと承認パッケージを構築します。',badge:'svc'},
+      {ico:'⚡',name:'Mirror Gateway',          desc:'モデルルーティング最適化。初日からタスクに最適なモデルを選定し、施策別のコストと使用状況を可視化します。',badge:'prod'},
+    ],
+    engage:'当社はPilot Readinessを通じて、共同設計パートナーとして参画します。Mirror Gatewayにより、初日からプラットフォーム導入を前提とせずに、ルーティングとコスト可視化をすぐに実現できます。',
+    up:'→ 適切なスコーピングと準備レビューは、レイヤー2の体系的なPilot Assuranceの前提条件になります。'
+  },
+
+  safe:{
+    layer:'レイヤー 1 · 安全に始める', cc:'var(--l1)',
+    title:'安全性は確保できるか？',
+    why:'規制下でのAI導入において、最初に問うべきは性能ではありません。想定外の挙動が起きたときに何が起こるのか、誰が止めるのか、誰が責任を負うのかです。パイロットが実運用に近づく前に、これを定義しておく必要があります。',
+    products:[
+      {ico:'🛡️',name:'Mirror Guard',           desc:'軽量なワークフロー安全レイヤー。出力フィルタリング・境界ルール・設定可能なヒューマンインザループトリガーを提供します。',badge:'prod'},
+      {ico:'👁️',name:'Mirror Sentinel',        desc:'ランタイムエージェント監視。推論チェーン途中での挙動逸脱を検知し、有害な出力が運用に達する前に介入します。',badge:'prod'},
+      {ico:'📋',name:'Workflow Safety Review',  desc:'AIタッチポイントの整理・障害モードの定義・人間の権限境界の設定・エスカレーション経路の設計を行います。',badge:'svc'},
+      {ico:'🔍',name:'Mirror Vanguard',             desc:'シャドウエージェントの検出 — ガバナンス開始前に、組織内で稼働している未承認・未登録のAIエージェントを特定します。Mirror Vanguardまたは同等の市場ツールにより、このベースラインインベントリを提供できます。',badge:'dual'},
+    ],
+    engage:'当社は、安全性レビューという低摩擦かつ信頼性の高い形で参画します。Mirror Guardは、ログ取得や停止／エスカレーションを担う運用上の安全装置として、パイロット内に組み込めます。この段階でプラットフォーム導入は不要です。',
+    up:'→ ここで整備した安全コントロールが、レイヤー3のランタイム強制の基盤になります。'
+  },
+
+  cost:{
+    layer:'レイヤー 1 · 安全に始める', cc:'var(--l1)',
+    title:'コストがかかりすぎないか？',
+    why:'多くのパイロットが停滞する理由は、技術が失敗したからではありません。コストを予測できず、説明できず、経営層に正当化できないからです。コストとROIの検証こそが、モデル性能以前に立ちはだかる最初の実務上の障壁です。',
+    products:[
+      {ico:'💰',name:'Mirror CostGuard',        desc:'トークンレベルの予算制御・プロジェクト別支出上限・リアルタイム使用アラート・予算超過前の自動制御を提供します。',badge:'prod'},
+      {ico:'🔀',name:'Mirror Gateway',          desc:'インテリジェントモデルルーティング。出力品質を損なわずに最もコスト効率の高いモデルへ推論タスクを誘導します。',badge:'prod'},
+      {ico:'📊',name:'Cost Structure Analysis', desc:'AIコストが最も集中する領域（データアクセス・セキュリティレビュー・運用・社内導入摩擦）の分解を支援します。',badge:'svc'},
+      {ico:'🤝',name:'Vendor / Tool Assessment',desc:'既存AIツールコストの中立的な評価。統合・廃止・再交渉すべき領域を特定します。',badge:'jnt'},
+    ],
+    engage:'これは最も入りやすい対話テーマの一つです。どこにコストが集中しているのかを確認し、内訳を整理し、コストを制御できるパイロットを共同で設計します。Mirror GatewayとMirror CostGuardにより、測定可能なROIを示せます。',
+    up:'→ レイヤー1で得られるコスト可視化は、レイヤー2でPilot Assuranceを承認可能にするROI証跡につながります。'
+  },
+
+  prove:{
+    layer:'レイヤー 1 · 安全に始める', cc:'var(--l1)',
+    title:'証明できるか？',
+    why:'規制産業に必要なのは、AIの出力だけではなく証跡です。問題が起きたとき、あるいは内部監査や規制当局から照会があったときには、すべてのエージェント行動を再構成できなければなりません。だからこそ、初日から証跡を取得することが重要です。',
+    products:[
+      {ico:'📒',name:'Mirror Ledger Engine',    desc:'すべてのエージェント行動の改ざん不可能なハッシュ連鎖監査ログ。規制当局対応済みで時系列クエリが可能です。',badge:'prod'},
+      {ico:'🔏',name:'Evidence Packaging',      desc:'Ed25519署名付き証跡パッケージ。社内レビュー・監査委員会・規制当局提出・訴訟対応に対応します。',badge:'prod'},
+      {ico:'📁',name:'Audit Readiness Review',  desc:'規制当局の期待と社内リスク管理基準に照らし、現在のAIログ取得の不足を評価します。',badge:'svc'},
+    ],
+    engage:'Mirror Ledgerは、あらゆるパイロットに最小限の負荷でパッシブ・ロギングを導入し、直ちに監査価値を提供します。コンプライアンス重視の買い手にとって、最も導入しやすい入口です。',
+    up:'→ ここで整備した証跡アーキテクチャは、レイヤー3のOperational Traceability基盤になります。'
+  },
+
+  /* LAYER 2 */
+  pilot:{
+    layer:'レイヤー 2 · パイロットとAI基盤', cc:'var(--l2)',
+    title:'Pilot Assurance',
+    why:'社内承認を通過できないパイロットは、そもそも実行されません。多くの組織は技術力を持っていても、AI施策を承認し、監視し、拡張するためのガバナンス構造を欠いています。',
+    products:[
+      {ico:'✅',name:'Mirror Sentinel',         desc:'パイロット中に有効なランタイム監視。挙動逸脱検知・チェーン途中での介入・ライブガバナンス証跡の生成を行います。',badge:'prod'},
+      {ico:'🛡️',name:'Mirror Guard',           desc:'初期導入時だけでなく、パイロットのライフサイクル全体を通じて出力境界を実行統制します。',badge:'prod'},
+      {ico:'🗂️',name:'Governance-Ready Pilot Design', desc:'社内承認パッケージ（スコープ・安全コントロール・成功指標・エスカレーション経路・終了基準）を共同設計します。',badge:'svc'},
+      {ico:'⚔️',name:'Adversarial Readiness',       desc:'本番前の敵対的テストおよびレッドチームサポート — AIの動作を、敵対的入力・境界違反・ポリシーのエッジケースに対してストレステストします。Mirror OSがガバナンスフレームワークを提供し、エコシステムの専門ツールが実行を担当します。',badge:'svc_eco'},
+    ],
+    engage:'当社は、技術的に動くパイロットではなく、承認可能なパイロットを実現するチームとして関わります。Mirror Sentinelで監視されたパイロットは、自らガバナンス証跡を生成し、拡張の根拠を築きます。',
+    up:'→ 成功したPilot Assuranceは、レイヤー3のランタイム・ガバナンスを拡張する前提条件になります。'
+  },
+
+  data:{
+    layer:'レイヤー 2 · パイロットとAI基盤', cc:'var(--l2)',
+    title:'データ準備性',
+    why:'データ来歴が未解決であることは、モデル性能以上にAIパイロット失敗の典型的要因です。データ所有者、バージョン管理、リネージが明確でなければ、AIシステムは信頼も監査もできない出力を生みます。',
+    products:[
+      {ico:'🗃️',name:'Data Ownership Clarity',  desc:'AIシステムが本番データに触れる前に、データ所有権の境界・アクセス権・同意フレームワークを定義します。',badge:'svc'},
+      {ico:'🔖',name:'Dataset Versioning',       desc:'AIの学習と推論に使用するデータセットの版管理規律を確立し、再現性と監査可能性を担保します。',badge:'svc'},
+      {ico:'🧠',name:'Mirror Memory',            desc:'永続的なエージェントコンテキストレイヤー。セッションをまたいでデータリネージを維持し、状態遷移を監査可能にします。',badge:'prod'},
+      {ico:'📒',name:'Mirror Ledger',            desc:'エージェント行動とともにデータ来歴を記録し、データソースから出力までのエンドツーエンドのトレーサビリティを実現します。',badge:'prod'},
+      {ico:'🔍',name:'Mirror Vanguard',             desc:'未登録のAIエージェントが本番データに触れることは、見えないガバナンスリスクです。Mirror Vanguardまたは同等ツールにより、データリネージを適切に確立する前にシャドウAIの存在を特定できます。',badge:'dual'},
+    ],
+    engage:'通常は、モデルや導入戦略を提案する前に、データ準備性の確認から始めます。Mirror MemoryとLedgerは、データガバナンスを運用として機能させる技術レイヤーを提供します。',
+    up:'→ レイヤー2で整ったデータリネージは、レイヤー3で信頼できるOperational Traceabilityを可能にします。'
+  },
+
+  model:{
+    layer:'レイヤー 2 · パイロットとAI基盤', cc:'var(--l2)',
+    title:'モデル戦略',
+    why:'誤ったモデルを選択したり、すべてのタスクを同じモデルに流したりすると、不要なコスト、遅延、ガバナンスの複雑性が生じます。モデル戦略とは、タスクに応じた適切なルーティング構成を設計することです。',
+    products:[
+      {ico:'🎯',name:'Model Selection',          desc:'タスク要件・コストプロファイル・レイテンシ・ガバナンス制約に基づくモデル評価・選定フレームワーク。',badge:'svc'},
+      {ico:'🔀',name:'Mirror Gateway',           desc:'インテリジェントモデルルーティング。タスク種別・コスト上限・ポリシールールに基づき、実行時に最適なモデルへ推論を誘導します。',badge:'prod'},
+      {ico:'👁️',name:'Mirror Sentinel',         desc:'モデル境界を超えてエージェント挙動を監視し、モデルの交換やアップグレード時の逸脱を検知します。',badge:'prod'},
+      {ico:'🤖',name:'Agent Orchestration Design',desc:'明確な権限境界・委任ルール・エスカレーションロジックを持つマルチエージェントワークフローを設計します。',badge:'svc'},
+    ],
+    engage:'当社は、特定ベンダーに依存しない中立的なアドバイザリーとしてモデル戦略を支援します。そのうえでMirror Gatewayが、ガバナンスを内蔵した形でルーティング戦略を実運用化します。',
+    up:'→ レイヤー2で統制されたモデルルーティングは、レイヤー3のPolicy Enforcementで実行可能なポリシーになります。'
+  },
+
+  compute:{
+    layer:'レイヤー 2 · パイロットとAI基盤', cc:'var(--l2)',
+    title:'計算資源・コスト設計',
+    why:'計画的な計算資源アーキテクチャがなければ、AIパイロットは管理不能なインフラ消費を生み、ガバナンス整備が必要になる前に経営支援を失います。コスト設計は単なる財務管理ではなく、導入継続性の設計です。',
+    products:[
+      {ico:'🖥️',name:'Compute Planning',        desc:'導入前に計算資源要件を適正化し、過剰プロビジョニングとインフラの肥大化を防ぎます。',badge:'svc'},
+      {ico:'🔀',name:'Mirror Gateway',           desc:'品質とコストの両立を図る推論ルーティング。コスト上限に基づくタスクとモデルの自動マッチング。',badge:'prod'},
+      {ico:'💰',name:'Mirror CostGuard',         desc:'すべてのAI施策とモデルにわたるリアルタイムコスト監視・予算強制・支出レポートを提供します。',badge:'prod'},
+      {ico:'📈',name:'Cost Optimisation Review', desc:'使用量拡大に伴う推論コストの継続的レビュー。時間経過とともにルーティング効率の改善点を特定します。',badge:'jnt'},
+    ],
+    engage:'コスト設計は、技術力はあっても支出可視化が不足しているチームにとって、しばしば最初の入口になります。Mirror GatewayとMirror CostGuardは、即時に示せるROIを提供し、その後のガバナンス拡張を支えることができます。',
+    up:'→ レイヤー2のコスト統制は、レイヤー4の統合されたコスト・証跡基盤へと直結します。'
+  },
+
+  /* LAYER 3 */
+  policy:{
+    layer:'レイヤー 3 · ランタイム・ガバナンス', cc:'var(--l3)',
+    title:'ポリシー実行統制',
+    why:'AIポリシー文書を持っていることと、それをランタイムで実行統制できることの間には大きな隔たりがあります。多くのガバナンス枠組みは意図にとどまります。AIエージェントが本番で動作する以上、統制は実行時に機能しなければなりません。',
+    products:[
+      {ico:'⚖️',name:'Mirror Sentinel',              desc:'ランタイムポリシー実行統制。推論途中でポリシー違反が起きた際に停止・エスカレーション・再ルーティングするKill SwitchとCircuit Breaker。<em>多くのツールは出力後に通知します。Mirror Sentinelは運用中に介入します。</em>',badge:'prod'},
+      {ico:'📜',name:'Mirror OS Policy Layer',        desc:'Claim Taxonomy（A/B/C/D）。監視フラグではなく、実行統制アクションに直接対応する構造化されたポリシー定義。',badge:'prod'},
+      {ico:'🔴',name:'Circuit Breaker / Kill Switch', desc:'設定可能な導入境界。挙動閾値を超えた際に、有害な出力が完了する前にエージェントを自動停止します。',badge:'prod'},
+      {ico:'🏗️',name:'Policy-to-Control Design',     desc:'社内AIポリシー・リスク許容度・規制要件を、文書ではなく実行可能なランタイムルールへ変換します。',badge:'svc'},
+      {ico:'🗺️',name:'Regulatory Control Mapping',   desc:'規制要件（EU AI Act・金融庁・DORA・NIST AI RMF・業種別規制）をMirror OSの実行統制と証跡出力に対応付けます。',badge:'svc'},
+      {ico:'🛡️',name:'Runtime Guardrails',             desc:'Mirror Guardが常時稼働の実行境界を提供します — 入力フィルタリング、出力抑制、停止/エスカレーション/再ルーティング制御、および人間による上書きトリガー。ガバナンスとは機能層ではなく、ポリシー基準のランタイム実装です。',badge:'prod'},
+    ],
+    engage:'このレイヤーは、コンプライアンス文書と実運用の乖離を埋めます。当社はPolicy-to-Control Designを通じて、ポリシー意図をランタイム挙動へ変換し、リスク部門やコンプライアンス部門に実行可能な統制点を提供します。',
+    up:'→ 実行統制されたランタイム・ポリシーと規制統制マッピングは、レイヤー4の統合Enterprise AI Governance基盤を構成します。'
+  },
+
+  trace:{
+    layer:'レイヤー 3 · ランタイム・ガバナンス', cc:'var(--l3)',
+    title:'運用トレーサビリティ',
+    why:'すべてのAIエージェント判断には、責任の連鎖が必要です。何が、どのモデルにより、どのポリシーの下で、どの文脈で、いつ判断され、誰が責任権限を持っていたのかが追える必要があります。これがなければ、運用リスクは説明も統制もできません。',
+    products:[
+      {ico:'📒',name:'Mirror Ledger Engine',     desc:'すべてのエージェントセッションにわたる完全なハッシュ連鎖証跡。分割・改ざん防止・時系列/モデル/施策別のクエリが可能です。',badge:'prod'},
+      {ico:'🧠',name:'Mirror Memory',            desc:'認知継続性レイヤー。セッションをまたいだ永続的エージェントコンテキストと、監査可能な状態遷移・逸脱検知を提供します。',badge:'prod'},
+      {ico:'📊',name:'Mirror IOP Governance Platform', desc:'運用ガバナンスプラットフォーム。RBAC・2FA・FastAPIエンドポイント・Reactダッシュボードを備えた、コンプライアンス・リスクチーム向けの運用インターフェース。',badge:'prod'},
+    ],
+    engage:'トレーサビリティは、パイロット成功後に拡張が検討される段階で、リスク部門やコンプライアンス部門から最も強く求められる要件になります。Mirror LedgerとMirror IOPは、ガバナンスを拡張するための基盤を提供します。',
+    up:'→ 拡張された運用トレーサビリティは、レイヤー4のEnterprise AI Governanceを支える基盤要素です。'
+  },
+
+  /* LAYER 4 */
+  gov:{
+    layer:'レイヤー 4 · エンタープライズAIガバナンス', cc:'var(--l4)',
+    title:'Enterprise AI Governance',
+    why:'すべての入口、すべてのパイロット、すべてのコスト統制、すべての安全確認は、最終的にここへ収束します。Mirror OSは他のツールと並列導入する補助ツールではありません。信頼・統制・証跡を統合する基盤そのものです。',
+    products:[
+      {ico:'⬡',name:'Mirror OS Core',                    desc:'行動ガバナンスレイヤー。Observable・Auditable・Reconstructable。あらゆるAIモデルやエージェントランタイムの上位に位置するベンダー中立の基盤。',badge:'prod'},
+      {ico:'🔐',name:'Mirror Trust Layer',                desc:'エンタープライズグレードのガバナンス。行動自律性制御・認知継続性管理・署名付き証跡オーケストレーションを提供します。',badge:'prod'},
+      {ico:'🌐',name:'Mirror Gateway',                    desc:'すべての施策にわたる統合モデルルーティング・コストガバナンス・運用可視化をエンタープライズ規模で提供します。',badge:'prod'},
+      {ico:'🏛️',name:'Enterprise Governance Architecture',desc:'施策横断のガバナンス運用モデルを設計します。エンタープライズ規模の統制基盤・証跡アーキテクチャ・説明責任構造・エスカレーション境界を含みます。',badge:'svc'},
+      {ico:'🗺️',name:'Operating Model Alignment',        desc:'Mirror OSのガバナンス統制を、既存のコンプライアンスプログラム・リスクフレームワーク・社内運用構造に整合させます。既存システムの置き換えは不要です。',badge:'svc'},
+    ],
+    engage:'Mirror OSは、初日から全面導入を求めるプラットフォームとして位置付けていません。お客様のAI活用範囲が広がるにつれて、自然に到達する統合基盤です。導入される各モジュールはすでにこの基盤の一部であり、拡張とは置き換えではなく認識の深化です。',
+    up:'→ ここが収束先です。下位レイヤーの取り組みは、すべてこの運用モデルの構成要素です。'
+  }
+};
+
+/* ─── PATHWAYS ─── */
+const PATHS = {
+  safety:   ['c-safe',  'c-pilot',  'c-policy',  'c-gov'],
+  cost:     ['c-cost',  'c-compute','c-trace',   'c-gov'],
+  evidence: ['c-prove', 'c-data',   'c-trace',   'c-gov'],
+  scoping:  ['c-start', 'c-pilot',  'c-policy',  'c-gov'],
+};
+
+/* Emory Layer Illumination — hi=full bright, half=semi-lit, dim=suppress */
+const ILLUMINATE = {
+  safety: {
+    hi:   ['c-safe',  'c-policy', 'c-gov'],
+    half: ['c-pilot', 'c-data',   'c-model',   'c-compute'],
+    dim:  ['c-start', 'c-cost',   'c-prove',   'c-trace'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-half', 'lr-3':'row-lit', 'lr-4':'row-lit' }
+  },
+  cost: {
+    hi:   ['c-cost',  'c-compute', 'c-gov'],
+    half: ['c-pilot', 'c-data',    'c-model',   'c-policy', 'c-trace'],
+    dim:  ['c-start', 'c-safe',    'c-prove'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-lit', 'lr-3':'row-half', 'lr-4':'row-lit' }
+  },
+  evidence: {
+    hi:   ['c-prove', 'c-data',   'c-trace',   'c-gov'],
+    half: ['c-pilot', 'c-model',  'c-compute'],
+    dim:  ['c-start', 'c-safe',   'c-cost',    'c-policy'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-lit', 'lr-3':'row-lit', 'lr-4':'row-lit' }
+  },
+  scoping: {
+    hi:   ['c-start', 'c-pilot',  'c-gov'],
+    half: ['c-safe',  'c-cost',   'c-prove',   'c-data', 'c-model', 'c-compute', 'c-policy'],
+    dim:  ['c-trace'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-lit', 'lr-3':'row-half', 'lr-4':'row-lit' }
+  }
+};
+let activePath = null;
+
+function setPath(k) {
+  if (activePath === k) { clearPath(); return; }
+  activePath = k;
+  document.querySelectorAll('.p-btn:not(.clear)').forEach(b=>b.classList.remove('active'));
+  document.getElementById('pb-'+k).classList.add('active');
+
+  const ill = ILLUMINATE[k];
+  const hiSet   = new Set(ill.hi);
+  const halfSet = new Set(ill.half);
+
+  // Apply card states
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.remove('hi','half','dim');
+    if      (hiSet.has(c.id))   c.classList.add('hi');
+    else if (halfSet.has(c.id)) c.classList.add('half');
+    else                         c.classList.add('dim');
+  });
+
+  // Apply layer row states
+  ['lr-1','lr-2','lr-3','lr-4'].forEach(id=>{
+    const row = document.getElementById(id);
+    if (!row) return;
+    row.classList.remove('row-lit','row-half','row-dim');
+    row.classList.add(ill.rows[id] || 'row-dim');
+  });
+}
+
+function clearPath() {
+  activePath=null;
+  document.querySelectorAll('.p-btn:not(.clear)').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('hi','half','dim'));
+  ['lr-1','lr-2','lr-3','lr-4'].forEach(id=>{
+    const row = document.getElementById(id);
+    if (row) row.classList.remove('row-lit','row-half','row-dim');
+  });
+}
+
+/* ─── MODAL ─── */
+function open_modal(k) {
+  const d=D[k]; if(!d) return;
+  const bl={prod:'当社製品',svc:'当社サービス',jnt:'共同アドバイザリー',eco:'エコシステム',dual:'dual',svc_eco:'svc_eco'};
+  const bc={prod:'b-prod',     svc:'b-svc',      jnt:'b-jnt',     eco:'b-eco'};
+
+  const rows=d.products.map(p=>`
+    <div class="p-row">
+      <span class="p-ico">${p.ico}</span>
+      <div class="p-info">
+        <div class="p-name" style="color:${d.cc}">${p.name}</div>
+        <div class="p-desc">${p.desc}</div>
+        <div style="margin-top:6px;">
+          ${p.badge==='dual'
+            ? '<span class="p-badge b-prod">当社製品</span><span class="p-badge b-eco" style="margin-left:4px;">エコシステム</span>'
+            : p.badge==='svc_eco'
+            ? '<span class="p-badge b-svc">当社サービス</span><span class="p-badge b-eco" style="margin-left:4px;">エコシステム</span>'
+            : '<span class="p-badge '+bc[p.badge]+'">'+(bl[p.badge]||p.badge)+'</span>'}
+        </div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('modal-accent').style.background=
+    `linear-gradient(90deg,transparent,${d.cc},transparent)`;
+
+  document.getElementById('modal-body').innerHTML=`
+    <div class="m-layer" style="color:${d.cc}">${d.layer}</div>
+    <div class="m-title">${d.title}</div>
+    <div class="m-why">${d.why}</div>
+    <div class="m-sec">
+      <div class="m-sec-title">製品・サービス</div>
+      ${rows}
+    </div>
+    <div class="m-sec">
+      <div class="m-sec-title">支援アプローチ</div>
+      <div class="m-box">${d.engage}</div>
+    </div>
+    <div class="m-sec" style="margin-bottom:0">
+      <div class="m-sec-title">つながり先</div>
+      <div class="m-up">${d.up}</div>
+    </div>`;
+
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function close_modal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function handle_overlay(e){
+  if(e.target===document.getElementById('overlay')) close_modal();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape') close_modal();});
+
+function showModuleOverlay() {
+  document.getElementById('mod-overlay').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+function hideModuleOverlay() {
+  document.getElementById('mod-overlay').classList.remove('visible');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') hideModuleOverlay();
+});
+
+</script>
+
+<!-- Mirror OS Module Overlay JP -->
+<div id="mod-overlay">
+  <button class="mo-close" onclick="hideModuleOverlay()">← フレームワークに戻る</button>
+  <div class="mo-header">
+    <div class="mo-title">Mirror OS Platform</div>
+    <div class="mo-subtitle">各レイヤーのモジュール</div>
+  </div>
+  
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l4)">レイヤー 4</span>
+        <span class="mo-layer-name" style="color:var(--l4)">エンタープライズAIガバナンス</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror OS Core</span>
+          </div>
+          <div class="mo-mod-role">プラットフォームのランタイム基盤 — エンタープライズ全体のすべてのガバナンスモジュールを統括します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Trust Layer</span>
+          </div>
+          <div class="mo-mod-role">統合された信頼・説明責任・証跡のファブリック — すべてのAI施策にわたる最終的なガバナンスの枠組みです。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror Gateway</span>
+          </div>
+          <div class="mo-mod-role">モデルルーティングとコストガバナンス — エンタープライズ規模で完全なコスト・コンプライアンス可視性を持ちAIワークロードをルーティングします。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">継続的な行動監視 — エンタープライズ全体のすべてのエージェントが定義されたガバナンス境界内に収まるよう保証します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Ledger Engine</span>
+          </div>
+          <div class="mo-mod-role">改ざん防止の監査チェーン — 組織全体のすべてのAI意思決定について再構成可能な証跡を記録します。</div>
+        </div>
+      </div>
+    </div>
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l3)">レイヤー 3</span>
+        <span class="mo-layer-name" style="color:var(--l3)">ランタイムガバナンス</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">推論チェーンの途中で行動のドリフトを検出 — 有害な出力が業務に届く前にインターセプトします。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Guard</span>
+          </div>
+          <div class="mo-mod-role">ランタイムガードレール — 出力境界の強制、停止/エスカレーション/再ルーティング制御、および人間による上書きトリガーを提供します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror OS Policy Layer</span>
+          </div>
+          <div class="mo-mod-role">ガバナンスポリシーをランタイム強制ルールに変換 — エージェントを実際に停止・再ルーティングするポリシーです。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Circuit Breaker/Kill Switch</span>
+          </div>
+          <div class="mo-mod-role">ポリシー閾値を超えたときにAI実行をハードストップ — 自動化された防御の最終ラインです。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Ledger Engine</span>
+          </div>
+          <div class="mo-mod-role">すべてのポリシー決定と強制アクションを記録 — ランタイムガバナンスイベントの保管連鎖です。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Memory</span>
+          </div>
+          <div class="mo-mod-role">ガバナンスされたコンテキストの継続性を維持 — エージェントがセッションをまたいで証跡にリンクされた監査可能なメモリで動作することを保証します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror IOP</span>
+          </div>
+          <div class="mo-mod-role">インターオペレーター・ガバナンスプラットフォーム — 定義された権限境界でシステム間のAIインタラクションを管理します。</div>
+        </div>
+      </div>
+    </div>
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l2)">レイヤー 2</span>
+        <span class="mo-layer-name" style="color:var(--l2)">パイロット・AIファウンデーション</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">パイロット期間中のランタイム監視 — 導入初日からライブのガバナンス証跡を生成します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Guard</span>
+          </div>
+          <div class="mo-mod-role">パイロットのライフサイクル全体を通じて出力境界を強制 — 初期導入時だけでなく継続的に機能します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Memory</span>
+          </div>
+          <div class="mo-mod-role">ガバナンスされたデータリネージを確立 — パイロット中のすべてのAIインタラクションがトレース可能かつ再現可能です。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror Gateway</span>
+          </div>
+          <div class="mo-mod-role">モデルルーティング戦略 — 初日からコストとガバナンスの可視性を持って適切なタスクに適切なモデルを選択します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror CostGuard</span>
+          </div>
+          <div class="mo-mod-role">コンピュートコスト管理 — パイロットの実験フェーズ中の管理されていない推論コストの増大を防ぎます。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot intl"></span>
+            <span class="mo-mod-name">Mirror Vanguard</span>
+          </div>
+          <div class="mo-mod-role">シャドウエージェントの検出 — ガバナンスを確立する前に、パイロットデータに触れている未登録のAIエージェントを特定します。</div>
+        </div>
+      </div>
+    </div>
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l1)">レイヤー 1</span>
+        <span class="mo-layer-name" style="color:var(--l1)">安全に始める</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Guard</span>
+          </div>
+          <div class="mo-mod-role">軽量なワークフロー安全レイヤー — 初期段階の展開における出力フィルタリング、境界ルール、および人間参加型トリガーを提供します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">早期行動監視 — スケールする前に正常なエージェント動作がどのようなものかのベースラインを確立します。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror Gateway</span>
+          </div>
+          <div class="mo-mod-role">即時のモデルルーティングとコスト可視性 — 最初のユースケースからスコープの拡大と管理されていない支出を防ぎます。</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot intl"></span>
+            <span class="mo-mod-name">Mirror Vanguard</span>
+          </div>
+          <div class="mo-mod-role">既に稼働している未承認のAIエージェントを発見 — 見えないものはガバナンスできません。</div>
+        </div>
+      </div>
+    </div>
+  <div class="mo-legend">
+    <div class="mo-leg-item"><span class="mo-dot ctrl" style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>制御</div>
+    <div class="mo-leg-item"><span class="mo-dot evid" style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>証跡</div>
+    <div class="mo-leg-item"><span class="mo-dot ops"  style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>運用</div>
+    <div class="mo-leg-item"><span class="mo-dot intl" style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>インテリジェンス</div>
+  </div>
+</div>
+
+</body>
+</html>
