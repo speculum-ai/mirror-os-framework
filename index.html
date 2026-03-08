@@ -651,32 +651,27 @@ body::before {
 .mo-trigger-icon{ font-size:13px; }
 
 
-/* ── iPad tap-preview (first-tap = hover substitute) ── */
+
+
+
+
+/* ── iPad two-tap preview ── */
 @media (hover: none) and (pointer: coarse) {
-  .p-card.tap-preview {
-    border-color: var(--layer-color, rgba(56,189,248,0.5)) !important;
-    background: rgba(56,189,248,0.07) !important;
+  .card.tap-preview {
+    border-color: rgba(56,189,248,0.6) !important;
+    background: rgba(56,189,248,0.08) !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transition: all 0.15s;
   }
-  .p-card.tap-preview::after {
-    content: 'タップして開く' ;
-    display: block;
-    margin-top: 10px;
-    font-family: 'Courier New', monospace;
+  .card.tap-preview .c-title::after {
+    content: ' › tap again';
     font-size: 10px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
+    color: rgba(56,189,248,0.55);
+    font-family: 'Courier New', monospace;
     text-transform: uppercase;
-    color: rgba(56,189,248,0.6);
-    text-align: right;
-  }
-  /* English version label */
-  html[lang="en"] .p-card.tap-preview::after,
-  .p-card.tap-preview::after {
-    content: 'Tap again to open ›';
-  }
-  .ladder-step-header.tap-preview {
-    background: rgba(56,189,248,0.06) !important;
+    font-weight: 400;
   }
 }
 
@@ -1427,61 +1422,52 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 
+
+
+
 <script>
-// ── iPad Two-Tap Interaction ──────────────────────────────────────────────────
-// First tap = hover preview, Second tap = execute click
-// Mouse users: no change
-
+// ── iPad Two-Tap: first tap = preview, second tap = open ──────────────────
 (function() {
-  const isTouchDevice = () => window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-  if (!isTouchDevice()) return; // Desktop: do nothing, native hover works
+  if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
 
-  let activeTapEl = null;
+  let activeCard = null;
 
-  function clearActiveTap() {
-    if (activeTapEl) {
-      activeTapEl.classList.remove('tap-preview');
-      activeTapEl = null;
+  function clearActive() {
+    if (activeCard) {
+      activeCard.classList.remove('tap-preview');
+      activeCard = null;
     }
   }
 
-  // Dismiss when tapping outside
+  // Dismiss on outside tap
   document.addEventListener('touchstart', function(e) {
-    if (activeTapEl && !activeTapEl.contains(e.target)) {
-      clearActiveTap();
-    }
+    if (activeCard && !activeCard.contains(e.target)) clearActive();
   }, { passive: true });
 
-  // Intercept taps on interactive cards
   document.addEventListener('touchend', function(e) {
-    // Find closest tappable card
-    const card = e.target.closest('.p-card, .ladder-step-header, .mo-trigger, .mo-close');
+    // Always-fire elements: overlay trigger/close buttons
+    if (e.target.closest('.mo-trigger, .mo-close, .p-btn, .baseline')) return;
+
+    const card = e.target.closest('.card');
     if (!card) return;
 
-    // mo-trigger and mo-close: always fire immediately (no preview needed)
-    if (card.classList.contains('mo-trigger') || card.classList.contains('mo-close')) {
-      return; // let default click fire
-    }
-
-    if (activeTapEl === card) {
-      // Second tap: execute — remove preview and let click fire naturally
-      clearActiveTap();
+    if (activeCard === card) {
+      // Second tap — clear preview, let click fire naturally
+      clearActive();
       return;
     }
 
-    // First tap: show preview, suppress click
+    // First tap — show preview, block click
     e.preventDefault();
-    clearActiveTap();
-    activeTapEl = card;
+    e.stopPropagation();
+    clearActive();
+    activeCard = card;
     card.classList.add('tap-preview');
 
-    // Auto-dismiss after 3s if no second tap
-    setTimeout(() => {
-      if (activeTapEl === card) clearActiveTap();
-    }, 3000);
+    // Auto-dismiss after 3s
+    setTimeout(() => { if (activeCard === card) clearActive(); }, 3000);
 
   }, { passive: false });
-
 })();
 </script>
 
