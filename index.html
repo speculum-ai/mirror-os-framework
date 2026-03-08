@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- PWA / Add to Home Screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mirror OS">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0a1023">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <!-- Web App Manifest (inline) -->
+  <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Mirror+OS+Framework%22%2C%22short_name%22%3A%22Mirror+OS%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230a1023%22%2C%22theme_color%22%3A%22%230a1023%22%2C%22start_url%22%3A%22.%22%7D">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirror OS · Enterprise AI Governance Adoption Framework v3.1</title>
+
+<style>
+:root {
+  /* ── Aligned to speculum.ai website palette ── */
+  --bg:        #0f172a;   /* website surface-800  — lifted from #0f172a */
+  --surface:   #1e293b;   /* website surface-700  — card base           */
+  --surface2:  #253349;   /* slightly above card  — modal, raised cards  */
+  --surface3:  #2d3f5a;   /* hover / active state                        */
+  --border:    rgba(255,255,255,0.09);
+  --border-md: rgba(255,255,255,0.15);
+  --text:      #f8fafc;   /* website text-primary — was #d8dce8          */
+  --muted:     #94a3b8;   /* website text-secondary — was #52586a        */
+  --subtle:    #475569;   /* website surface-500                         */
+
+  /* Layer accents — matched to website vibrancy */
+  --l1: #3b82f6;  --l1-mid: rgba(59,130,246,0.15); --l1-glow: rgba(59,130,246,0.28);
+  --l2: #10b981;  --l2-mid: rgba(16,185,129,0.13); --l2-glow: rgba(16,185,129,0.24);
+  --l3: #f59e0b;  --l3-mid: rgba(245,158,11,0.13); --l3-glow: rgba(245,158,11,0.24);
+  --l4: #8b5cf6;  --l4-mid: rgba(139,92,246,0.13); --l4-glow: rgba(139,92,246,0.26);
+  --rail:#7c3aed; --rail-mid:rgba(124,58,237,0.10);
+
+  --ease: cubic-bezier(.4,0,.2,1);
+  --t: 0.2s;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+  min-height: 100vh;
+  padding: 60px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ════ NOISE TEXTURE ════ */
+body::before {
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+
+/* ════ HEADER ════ */
+.hdr {
+  text-align:center;
+  max-width:680px;
+  margin-bottom:52px;
+  position:relative;z-index:1;
+}
+.hdr-eyebrow {
+  font-family:'Courier New',monospace;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:22px;
+}
+
+.opening {
+  max-width:560px;
+  margin:0 auto 28px;
+  padding:22px 30px;
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(255,255,255,0.018),rgba(255,255,255,0.006));
+  position:relative;
+  overflow:hidden;
+}
+.opening::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(109,68,212,0.4),transparent);
+}
+.opening-line1 {
+  font-family:Georgia,serif;
+  font-size:clamp(15px,2.2vw,18px);
+  font-weight:300;color:#7a8299;
+  line-height:1.5;letter-spacing:0.01em;
+}
+.opening-line2 {
+  font-family:Georgia,serif;
+  font-size:clamp(16px,2.4vw,20px);
+  font-weight:400;font-style:italic;
+  color:#bcc4dc;line-height:1.5;
+  margin-top:6px;letter-spacing:0.01em;
+}
+
+.hdr h1 {
+  font-family:Georgia,serif;
+  font-size:clamp(26px,4vw,44px);
+  font-weight:300;line-height:1.16;
+  color:#e4e8f4;letter-spacing:-0.01em;
+  margin-bottom:12px;
+}
+.hdr h1 em{font-style:italic;color:#a5b4fc;}
+
+.hdr-sub {
+  font-size:13px;color:var(--muted);
+  line-height:1.7;font-weight:300;
+  max-width:480px;margin:0 auto 18px;
+}
+
+.slogan {
+  font-family:'Courier New',monospace;
+  font-size:10px;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--l4);opacity:0.7;
+}
+
+/* ════ PATHWAY BAR ════ */
+.pathway-bar {
+  display:flex;gap:6px;margin-bottom:36px;
+  flex-wrap:wrap;justify-content:center;align-items:center;
+  position:relative;z-index:1;
+}
+.p-label {
+  font-family:'Courier New',monospace;
+  font-size:9px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted);margin-right:4px;
+}
+.p-btn {
+  font-family:'Courier New',monospace;font-size:10px;
+  letter-spacing:0.08em;padding:6px 14px;border-radius:20px;
+  border:1px solid var(--border-md);background:var(--surface);
+  color:var(--muted);cursor:pointer;transition:all var(--t) var(--ease);
+  white-space:nowrap;
+}
+.p-btn:hover{border-color:rgba(255,255,255,0.18);color:var(--text);}
+.p-btn.active{background:var(--surface3);color:var(--text);border-color:rgba(255,255,255,0.2);}
+.p-btn.clear{border-color:transparent;background:transparent;color:#444;}
+.p-btn.clear:hover{color:var(--muted);border-color:var(--border);}
+
+/* ════ LADDER ════ */
+.ladder{
+  width:100%;max-width:980px;
+  display:flex;flex-direction:column;gap:0;
+  position:relative;z-index:1;
+}
+
+.layer-row{display:flex;flex-direction:column;align-items:center;width:100%;}
+
+.layer-meta{
+  display:flex;align-items:center;gap:10px;
+  align-self:flex-start;margin-bottom:9px;padding-left:2px;
+}
+.layer-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.layer-num{
+  font-family:'Courier New',monospace;
+  font-size:13px;letter-spacing:0.16em;color:var(--muted);opacity:0.6;
+}
+.layer-name{
+  font-family:'Courier New',monospace;
+  font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+}
+
+/* Arrow connector */
+.connector{
+  display:flex;flex-direction:column;align-items:center;
+  padding:8px 0 4px;gap:1px;opacity:0.18;
+}
+.conn-line{width:1px;height:22px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.5),transparent);}
+.conn-tip{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid rgba(255,255,255,0.4);}
+
+/* Card grid widths — converging pyramid */
+.grid{display:flex;gap:8px;width:100%;justify-content:center;}
+.grid-l4{max-width:400px;}
+.grid-l3{max-width:640px;}
+.grid-l2{max-width:980px;}
+.grid-l1{max-width:980px;}
+
+/* ════ CARD ════ */
+.card{
+  flex:1;min-width:0;
+  border-radius:11px;
+  padding:20px 18px 42px; /* extra bottom for tooltip space */
+  cursor:pointer;
+  position:relative;
+  border:1px solid rgba(71,85,105,0.45);
+  background:var(--surface);
+  transition:transform var(--t) var(--ease),
+             box-shadow var(--t) var(--ease),
+             border-color var(--t) var(--ease),
+             background var(--t) var(--ease),
+             opacity var(--t) var(--ease);
+  overflow:hidden;
+}
+
+/* top glow line */
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  opacity:0;transition:opacity var(--t);
+}
+.card:hover::before,.card.hi::before{opacity:1;}
+
+/* Color theming per layer */
+.card-l1{--cc:var(--l1);--cm:var(--l1-mid);--cg:var(--l1-glow);}
+.card-l2{--cc:var(--l2);--cm:var(--l2-mid);--cg:var(--l2-glow);}
+.card-l3{--cc:var(--l3);--cm:var(--l3-mid);--cg:var(--l3-glow);}
+.card-l4{--cc:var(--l4);--cm:var(--l4-mid);--cg:var(--l4-glow);}
+
+.card::before{background:linear-gradient(90deg,transparent,var(--cc),transparent);}
+
+.card:hover,.card.hi{
+  transform:translateY(-3px);
+  border-color:color-mix(in srgb,var(--cc) 32%,transparent);
+  background:color-mix(in srgb,var(--cc) 4%,var(--surface));
+  box-shadow:0 10px 32px color-mix(in srgb,var(--cc) 14%,transparent);
+}
+.card.dim{opacity:0.18;filter:saturate(0.2);}
+
+/* Card content */
+.card-icon{font-size:16px;margin-bottom:12px;display:block;color:var(--cc);}
+.card-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:5px;}
+.card-body{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300;}
+
+/* Hover tooltip slide up */
+.card-tip{
+  position:absolute;bottom:0;left:0;right:0;
+  background:color-mix(in srgb,var(--cc) 9%,var(--surface2));
+  border-top:1px solid color-mix(in srgb,var(--cc) 16%,transparent);
+  padding:9px 14px;
+  font-size:12px;
+  color:color-mix(in srgb,var(--cc) 65%,var(--text));
+  line-height:1.55;font-weight:300;
+  transform:translateY(100%);
+  transition:transform var(--t) var(--ease);
+  pointer-events:none;
+}
+.card:hover .card-tip{transform:translateY(0);}
+
+.card-chevron{
+  position:absolute;top:14px;right:14px;
+  font-size:11px;color:var(--muted);opacity:0;
+  transition:opacity var(--t);
+}
+.card:hover .card-chevron{opacity:0.5;}
+
+/* ════ ALWAYS-ON BASELINE ════ */
+.baseline{
+  margin-top:18px;width:100%;max-width:980px;
+  border:1px solid rgba(90,68,144,0.22);
+  background:var(--rail-mid);
+  border-radius:11px;padding:18px 24px;
+  position:relative;overflow:hidden;
+}
+.baseline::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(109,68,212,0.3),transparent);
+}
+.baseline-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:10px;}
+.baseline-title{
+  font-family:'Courier New',monospace;
+  font-size:14px;letter-spacing:0.18em;text-transform:uppercase;
+  color:#a78bfa;
+}
+.baseline-pills{display:flex;gap:3px;flex-wrap:nowrap;}
+.b-pill-wrap{
+  position:relative;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.b-pill{
+  font-family:'Courier New',monospace;font-size:13px;letter-spacing:0.02em;
+  padding:5px 10px;border-radius:20px;
+  background:rgba(90,68,144,0.25);border:1px solid rgba(90,68,144,0.45);
+  color:#fbbf24;
+  cursor:default;
+  transition:background var(--t) var(--ease), border-color var(--t) var(--ease), color var(--t) var(--ease);
+}
+.b-pill-wrap:hover .b-pill{
+  background:rgba(139,92,246,0.35);
+  border-color:rgba(139,92,246,0.65);
+  color:#fde68a;
+}
+.b-explain{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  font-size:12px;
+  color:#94a3b8;
+  font-weight:400;
+  line-height:1.6;
+  padding:0 4px;
+  max-width:260px;
+  transition:max-height 0.28s var(--ease), opacity 0.22s var(--ease), padding 0.2s var(--ease);
+}
+.b-pill-wrap:hover .b-explain{
+  max-height:60px;
+  opacity:1;
+  padding:5px 4px 0;
+}
+.baseline-quote{
+  font-size:12px;color:#94a3b8;
+  font-weight:400;line-height:1.6;
+}
+
+/* ════ MODAL ════ */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.78);
+  backdrop-filter:blur(10px) saturate(0.8);
+  z-index:500;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.22s var(--ease);
+}
+.overlay.open{opacity:1;pointer-events:all;}
+
+.modal{
+  background:#1e293b;
+  border:1px solid rgba(71,85,105,0.5);
+  border-radius:16px;
+  width:100%;max-width:600px;
+  max-height:90vh;overflow-y:auto;
+  padding:38px 34px 32px;
+  position:relative;
+  box-shadow:0 50px 120px rgba(0,0,0,0.8);
+  transform:translateY(12px) scale(0.97);
+  transition:transform 0.24s var(--ease);
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,0.06) transparent;
+}
+.overlay.open .modal{transform:translateY(0) scale(1);}
+
+.modal-close{
+  position:absolute;top:18px;right:18px;
+  width:30px;height:30px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:7px;color:var(--muted);font-size:12px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all var(--t);
+}
+.modal-close:hover{background:rgba(255,255,255,0.09);color:var(--text);}
+
+/* modal top bar accent */
+.modal-accent{
+  position:absolute;top:0;left:0;right:0;height:2px;
+  border-radius:16px 16px 0 0;
+}
+
+.m-layer{
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.m-title{
+  font-family:Georgia,serif;
+  font-size:32px;font-weight:300;line-height:1.18;
+  margin-bottom:10px;color:#e4e8f4;
+}
+.m-why{
+  font-size:15px;color:#6e7788;line-height:1.72;font-weight:300;
+  margin-bottom:26px;padding-bottom:22px;
+  border-bottom:1px solid var(--border);
+}
+
+.m-sec{margin-bottom:22px;}
+.m-sec-title{
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:11px;
+}
+
+/* Product rows */
+.p-row{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 14px;border-radius:9px;
+  border:1px solid rgba(71,85,105,0.45);
+  background:rgba(255,255,255,0.018);
+  margin-bottom:6px;
+}
+.p-ico{font-size:15px;flex-shrink:0;margin-top:1px;}
+.p-info{flex:1;min-width:0;overflow:visible;}
+.p-name{
+  font-family:'Courier New',monospace;
+  font-size:13.5px;font-weight:500;margin-bottom:3px;
+}
+.p-desc{font-size:14px;color:var(--muted);line-height:1.55;font-weight:300;}
+.p-badge{
+  flex-shrink:0;
+  font-family:'Courier New',monospace;
+  font-size:9.5px;letter-spacing:0.09em;text-transform:uppercase;
+  padding:3px 8px;border-radius:4px;align-self:flex-start;white-space:nowrap;
+}
+.b-prod{background:rgba(31,140,114,0.1);color:#1f8c72;border:1px solid rgba(31,140,114,0.22);}
+.b-eco{background:rgba(251,191,36,0.08);color:#f59e0b;border:1px solid rgba(251,191,36,0.25);}
+.b-dual{display:none;}
+.b-svc {background:rgba(47,95,212,0.1); color:#6b8fe0;border:1px solid rgba(47,95,212,0.22);}
+.b-jnt {background:rgba(156,110,26,0.1);color:#c08a28;border:1px solid rgba(156,110,26,0.22);}
+
+.m-box{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(71,85,105,0.45);border-radius:9px;
+  padding:14px 16px;font-size:14px;
+  color:#8a94aa;line-height:1.72;font-weight:300;
+}
+.m-up{
+  background:rgba(109,68,212,0.05);
+  border:1px solid rgba(109,68,212,0.14);
+  border-radius:9px;padding:12px 16px;
+  font-family:'Courier New',monospace;
+  font-size:13px;letter-spacing:0.02em;
+  color:rgba(139,92,246,0.7);line-height:1.6;
+}
+
+/* ════ CLOSING STATEMENT ════ */
+.closing-stmt {
+  margin-top: 28px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: clamp(14px, 1.9vw, 17px);
+  font-weight: 300;
+  color: #4a5068;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  position: relative; z-index: 1;
+}
+.closing-stmt em {
+  font-style: italic;
+  color: #5c6480;
+}
+
+/* ════ FOOTER ════ */
+.foot{
+  margin-top:16px;text-align:center;
+  font-family:'Courier New',monospace;
+  font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;
+  color:#94a3b8;
+  position:relative;z-index:1;
+}
+
+/* ── Emory Layer Illumination ── */
+@keyframes card-blink {
+  0%,100% { opacity:0.55; filter:saturate(0.35); }
+  50%      { opacity:0.85; filter:saturate(0.75); }
+}
+.card.half{
+  animation: card-blink 2.2s ease-in-out infinite;
+}
+.card.hi{
+  opacity:1;
+  filter:saturate(1);
+}
+
+/* Layer row lit states */
+.layer-row{transition:opacity 0.35s ease;}
+.layer-row.row-dim   { opacity:0.22; }
+.layer-row.row-half  { animation: row-blink 2.2s ease-in-out infinite; }
+@keyframes row-blink {
+  0%,100% { opacity:0.30; }
+  50%      { opacity:0.70; }
+}
+.layer-row.row-lit   { opacity:1; }
+
+/* Layer dot pulse on lit */
+.layer-row.row-lit .layer-dot{
+  box-shadow:0 0 10px 3px currentColor;
+}
+.layer-row.row-lit .layer-name,
+.layer-row.row-lit .layer-num{
+  opacity:1;
+}
+.layer-row.row-half .layer-name,
+.layer-row.row-half .layer-num{
+  opacity:0.6;
+}
+
+
+
+
+/* ── Module Overlay ── */
+.mod-strip{
+  display:none;
+  flex-wrap:wrap;
+  gap:4px;
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.card.overlay-on .mod-strip{ display:flex; }
+.mod-tag{
+  font-family:'Courier New',monospace;
+  font-size:9px;letter-spacing:0.04em;
+  padding:2px 7px;border-radius:10px;
+  background:rgba(139,92,246,0.12);
+  border:1px solid rgba(139,92,246,0.3);
+  color:#a78bfa;
+  white-space:nowrap;
+}
+.mod-tag.eco{
+  background:rgba(251,191,36,0.08);
+  border-color:rgba(251,191,36,0.3);
+  color:#f59e0b;
+}
+#overlay-toggle.active{
+  background:rgba(139,92,246,0.15);
+  border-color:rgba(139,92,246,0.7);
+  color:#a78bfa;
+}
+
+
+/* ── Mirror OS Model Overlay v3.12 ── */
+#mod-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(8,12,22,0.88);
+  backdrop-filter:blur(2px);
+  overflow-y:auto;
+  padding:40px 24px 60px;
+  box-sizing:border-box;
+}
+#mod-overlay.visible{ display:block; }
+
+.mo-header{
+  text-align:center;
+  margin-bottom:32px;
+}
+.mo-title{
+  font-size:21px;letter-spacing:0.18em;text-transform:uppercase;
+  font-family:'Courier New',monospace;
+  color:rgba(56,189,248,0.8);
+  margin-bottom:6px;
+}
+.mo-subtitle{
+  font-size:34px;font-weight:700;
+  color:rgba(255,255,255,0.9);
+  letter-spacing:-0.01em;
+}
+.mo-close{
+  position:fixed;top:20px;right:24px;
+  padding:8px 18px;border-radius:20px;
+  background:rgba(56,189,248,0.08);
+  border:1px solid rgba(56,189,248,0.4);
+  color:rgba(56,189,248,0.85);
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.07em;text-transform:uppercase;
+  cursor:pointer;
+  display:flex;align-items:center;gap:7px;
+  transition:all 0.2s;z-index:1001;
+  white-space:nowrap;
+}
+.mo-close:hover{
+  background:rgba(56,189,248,0.15);
+  border-color:rgba(56,189,248,0.75);
+  color:#38bdf8;
+}
+
+.mo-layer{
+  margin-bottom:28px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.07);
+  overflow:hidden;
+}
+.mo-layer-header{
+  padding:12px 20px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.mo-layer-num{
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  opacity:0.5;
+}
+.mo-layer-name{
+  font-size:15px;font-weight:600;
+  letter-spacing:0.01em;
+}
+.mo-modules{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1px;
+  background:rgba(255,255,255,0.04);
+}
+.mo-module{
+  background:#0d1424;
+  padding:16px 18px;
+  transition:background 0.15s;
+}
+.mo-module:hover{ background:#111827; }
+.mo-mod-top{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:7px;
+}
+.mo-dot{
+  width:7px;height:7px;border-radius:50%;flex-shrink:0;
+}
+.mo-dot.ctrl{ background:#60a5fa;box-shadow:0 0 5px rgba(96,165,250,0.6); }
+.mo-dot.evid{ background:#34d399;box-shadow:0 0 5px rgba(52,211,153,0.6); }
+.mo-dot.ops { background:#fb923c;box-shadow:0 0 5px rgba(251,146,60,0.6); }
+.mo-dot.intl{ background:#a78bfa;box-shadow:0 0 5px rgba(167,139,250,0.6); }
+
+.mo-mod-name{
+  font-family:'Courier New',monospace;
+  font-size:13px;font-weight:600;letter-spacing:0.02em;
+  color:rgba(226,232,240,0.9);
+}
+.mo-mod-role{
+  font-size:13.5px;line-height:1.5;
+  color:rgba(148,163,184,0.7);
+}
+
+.mo-legend{
+  display:flex;justify-content:center;gap:20px;
+  margin-top:28px;flex-wrap:wrap;
+}
+.mo-leg-item{
+  display:flex;align-items:center;gap:6px;
+  font-family:'Courier New',monospace;
+  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+  color:rgba(148,163,184,0.45);
+}
+
+/* trigger button */
+.mo-trigger{
+  display:inline-flex;align-items:center;gap:7px;
+  margin-top:10px;
+  padding:7px 16px;border-radius:20px;
+  border:1px solid rgba(56,189,248,0.45);
+  background:rgba(56,189,248,0.07);
+  color:rgba(56,189,248,0.85);
+  font-family:'Courier New',monospace;
+  font-size:16px;letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;transition:all 0.2s;
+}
+.mo-trigger:hover{
+  border-color:rgba(56,189,248,0.85);
+  background:rgba(56,189,248,0.14);
+  color:#38bdf8;
+}
+.mo-trigger-icon{ font-size:13px; }
+
+</style>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      const swCode = `
+        const CACHE = 'mirror-os-v3.20.1';
+        self.addEventListener('install', e => {
+          e.waitUntil(
+            caches.open(CACHE).then(c => c.addAll([location.pathname || '/']))
+          );
+          self.skipWaiting();
+        });
+        self.addEventListener('fetch', e => {
+          e.respondWith(
+            caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match(e.request)))
+          );
+        });
+      `;
+      const blob = new Blob([swCode], {type: 'application/javascript'});
+      const swUrl = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(swUrl).catch(() => {});
+    }
+  </script>
+
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="hdr">
+  <div class="hdr-eyebrow">Mirror OS · Speculum AI · Enterprise Governance Framework v3.20.1</div>
+
+  <h1>From <em>Safe Adoption</em><br>to Enterprise AI Governance</h1>
+  <p class="hdr-sub">Start with the question that matters now. Grow into the control fabric you will need later.</p>
+  <div class="slogan">Secure by Design &nbsp;·&nbsp; Governed by Default</div>
+  <div style="text-align:center;margin-top:12px;">
+    <button class="mo-trigger" onclick="showModuleOverlay()">
+      <span class="mo-trigger-icon">⬡</span>
+      Mirror OS &nbsp;·&nbsp; Models in Each Layer
+    </button>
+  </div>
+</div>
+
+<!-- ══ PATHWAY BAR ══ -->
+<div class="pathway-bar">
+  <span class="p-label">Highlight path →</span>
+  <button class="p-btn" id="pb-safety"   onclick="setPath('safety')">Start from Safety</button>
+  <button class="p-btn" id="pb-cost"     onclick="setPath('cost')">Start from Cost</button>
+  <button class="p-btn" id="pb-evidence" onclick="setPath('evidence')">Start from Evidence</button>
+  <button class="p-btn" id="pb-scoping"  onclick="setPath('scoping')">Start from Scoping</button>
+  <button class="p-btn clear"            onclick="clearPath()">Clear</button>
+</div>
+
+<!-- ══ LADDER ══ -->
+<div class="ladder">
+
+  <!-- LAYER 4 -->
+  <div class="layer-row" id="lr-4">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l4)"></div>
+      <span class="layer-num">LAYER 4</span>
+      <span class="layer-name">Enterprise AI Governance</span>
+    </div>
+    <div class="grid grid-l4">
+      <div class="card card-l4" id="c-gov" onclick="open_modal('gov')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">⬡</span>
+        <div class="card-title">Enterprise AI Governance</div>
+        <div class="card-body">Unified governance, evidence, and accountability across all AI initiatives.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror OS Core</span><span class="mod-tag">Mirror Trust Layer</span><span class="mod-tag">Mirror Gateway</span><span class="mod-tag">Mirror Sentinel</span><span class="mod-tag">Mirror Ledger Engine</span></div>
+        <div class="card-tip">All entry points converge here — one unified trust, control, and evidence fabric across agents, models, and departments.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="conn-line"></div><div class="conn-tip"></div></div>
+
+  <!-- LAYER 3 -->
+  <div class="layer-row" id="lr-3">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l3)"></div>
+      <span class="layer-num">LAYER 3</span>
+      <span class="layer-name">Runtime Governance</span>
+    </div>
+    <div class="grid grid-l3">
+      <div class="card card-l3" id="c-policy" onclick="open_modal('policy')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◈</span>
+        <div class="card-title">Policy Enforcement</div>
+        <div class="card-body">Turn policy from documentation into runtime behaviour.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Sentinel</span><span class="mod-tag">Mirror OS Policy Layer</span><span class="mod-tag">Circuit Breaker / Kill Switch</span><span class="mod-tag">Runtime Guardrails</span></div>
+        <div class="card-tip">Agents that actually stop, escalate, and reroute when policies are violated — not flagged on a dashboard after the fact.</div>
+      </div>
+      <div class="card card-l3" id="c-trace" onclick="open_modal('trace')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◈</span>
+        <div class="card-title">Operational Traceability</div>
+        <div class="card-body">Preserve chain-of-custody for every AI decision and action.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Ledger Engine</span><span class="mod-tag">Mirror Memory</span><span class="mod-tag">Mirror IOP</span></div>
+        <div class="card-tip">Every agent decision — what model, which policy, what context, who held authority — reconstructable on demand.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="conn-line"></div><div class="conn-tip"></div></div>
+
+  <!-- LAYER 2 -->
+  <div class="layer-row" id="lr-2">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l2)"></div>
+      <span class="layer-num">LAYER 2</span>
+      <span class="layer-name">Pilot &amp; AI Foundations</span>
+    </div>
+    <div class="grid grid-l2">
+      <div class="card card-l2" id="c-pilot" onclick="open_modal('pilot')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Pilot Assurance</div>
+        <div class="card-body">Make pilots approvable — not just technically possible.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Sentinel</span><span class="mod-tag">Mirror Guard</span><span class="mod-tag eco">Adversarial Readiness</span></div>
+        <div class="card-tip">Structured to pass internal review, generate governance evidence, and become a foundation for expansion.</div>
+      </div>
+      <div class="card card-l2" id="c-data" onclick="open_modal('data')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Data Readiness</div>
+        <div class="card-body">Data ownership, lineage, and versioning before AI touches production.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Memory</span><span class="mod-tag">Mirror Ledger</span><span class="mod-tag eco">Mirror Vanguard</span></div>
+        <div class="card-tip">Unresolved data provenance is the most common cause of AI pilot failure — not model capability.</div>
+      </div>
+      <div class="card card-l2" id="c-model" onclick="open_modal('model')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Model Strategy</div>
+        <div class="card-body">Model selection, routing strategy, and agent orchestration design.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Gateway</span><span class="mod-tag">Mirror Sentinel</span></div>
+        <div class="card-tip">The right model for the right task — with routing logic that scales without increasing governance complexity.</div>
+      </div>
+      <div class="card card-l2" id="c-compute" onclick="open_modal('compute')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Compute &amp; Cost Architecture</div>
+        <div class="card-body">Compute planning, inference routing, and cost control from day one.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Gateway</span><span class="mod-tag">Mirror CostGuard</span></div>
+        <div class="card-tip">Without cost architecture, AI pilots create unmanaged burn — and lose executive support before governance is needed.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="conn-line"></div><div class="conn-tip"></div></div>
+
+  <!-- LAYER 1 -->
+  <div class="layer-row" id="lr-1">
+    <div class="layer-meta">
+      <div class="layer-dot" style="background:var(--l1)"></div>
+      <span class="layer-num">LAYER 1</span>
+      <span class="layer-name">Safe to Start</span>
+    </div>
+    <div class="grid grid-l1">
+      <div class="card card-l1" id="c-start" onclick="open_modal('start')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Where Do We Start?</div>
+        <div class="card-body">Clarify scope before cost, risk, and ownership become confused.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Gateway</span></div>
+        <div class="card-tip">Most teams fail not because the model is weak — but because the first use case was scoped badly.</div>
+      </div>
+      <div class="card card-l1" id="c-safe" onclick="open_modal('safe')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Is It Safe?</div>
+        <div class="card-body">Surface workflow failure points before the pilot reaches real operations.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Guard</span><span class="mod-tag">Mirror Sentinel</span><span class="mod-tag eco">Mirror Vanguard</span></div>
+        <div class="card-tip">What happens when the system behaves unexpectedly? Who stops it? Answering this before production is what separates responsible adoption from incidents.</div>
+      </div>
+      <div class="card card-l1" id="c-cost" onclick="open_modal('cost')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Will It Cost Too Much?</div>
+        <div class="card-body">Control spend before experimentation turns into unmanaged burn.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror CostGuard</span><span class="mod-tag">Mirror Gateway</span></div>
+        <div class="card-tip">Cost and ROI verification is the first real operational hurdle in AI adoption — not model capability.</div>
+      </div>
+      <div class="card card-l1" id="c-prove" onclick="open_modal('prove')">
+        <span class="card-chevron">↗</span>
+        <span class="card-icon">◎</span>
+        <div class="card-title">Can We Prove It?</div>
+        <div class="card-body">Capture evidence from day one instead of reconstructing after scrutiny.</div>
+        <div class="mod-strip"><span class="mod-tag">Mirror Ledger Engine</span></div>
+        <div class="card-tip">Regulated industries need evidence — not just outputs. Every agent action must be reconstructable when audit comes.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BASELINE -->
+  <div class="baseline">
+    <div class="baseline-top">
+      <span class="baseline-title">Always-On Governance Baseline</span>
+      <div class="baseline-pills">
+        <div class="b-pill-wrap">
+          <span class="b-pill">Policy Baseline</span>
+          <div class="b-explain">Every AI initiative should begin with explicit operating boundaries—not implicit assumptions.</div>
+        </div>
+        <div class="b-pill-wrap">
+          <span class="b-pill">Trace &amp; Evidence</span>
+          <div class="b-explain">Preserve auditability from day one, not after something goes wrong.</div>
+        </div>
+        <div class="b-pill-wrap">
+          <span class="b-pill">Stop / Escalate</span>
+          <div class="b-explain">AI systems need control points that can interrupt, contain, or hand off when risk rises.</div>
+        </div>
+        <div class="b-pill-wrap">
+          <span class="b-pill">Human Authority</span>
+          <div class="b-explain">Important decisions must preserve clear human accountability and override authority.</div>
+        </div>
+      </div>
+    </div>
+    <div class="baseline-quote">
+      These baseline controls travel with every engagement—from first pilot to enterprise governance.
+    </div>
+  </div>
+
+</div><!-- /ladder -->
+
+<div class="closing-stmt" style="color:#f97316;font-weight:700;font-style:normal;">AI adoption does not fail because of models. It fails because organizations lack a control system.</div>
+
+<div class="foot">Mirror OS · Speculum AI · Confidential GTM Material · v3.20.1</div>
+
+<!-- ══ MODAL ══ -->
+<div class="overlay" id="overlay" onclick="handle_overlay(event)">
+  <div class="modal" id="modal">
+    <div class="modal-accent" id="modal-accent"></div>
+    <button class="modal-close" onclick="close_modal()">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+/* ─── DATA ─── */
+const D = {
+
+  /* LAYER 1 */
+  start:{
+    layer:'Layer 1 · Safe to Start', cc:'var(--l1)',
+    title:'Where Do We Start?',
+    why:'Most AI initiatives do not fail because the model is wrong. They fail because the first use case was chosen without clear scope, undefined success criteria, or the wrong stakeholders in the room. Getting this right before any deployment is the difference between value and noise.',
+    products:[
+      {ico:'🔍',name:'Pilot Readiness Review',  desc:'Assess the first AI use case for scope clarity, stakeholder alignment, approval path, and measurable success criteria. ',badge:'svc'},
+      {ico:'🗺️',name:'AI Initiative Scoping',   desc:'Joint design of the first practical AI initiative — workflow selection, risk tiering, and internal alignment framework.',badge:'svc'},
+      {ico:'📐',name:'ROI Framing',             desc:'Structure measurable success metrics before the pilot begins. Builds the internal business case and approval package. ',badge:'svc'},
+      {ico:'⚡',name:'Mirror Gateway',          desc:'Model routing optimisation — right model for right task from day one. Provides per-initiative cost and usage visibility.',badge:'prod'},
+    ],
+    engage:'We enter as a co-design partner through Pilot Readiness. Mirror Gateway provides immediate routing and cost visibility without requiring day-one platform adoption.',
+    up:'→ Good scoping and readiness review create the conditions for structured Pilot Assurance at Layer 2.'
+  },
+
+  safe:{
+    layer:'Layer 1 · Safe to Start', cc:'var(--l1)',
+    title:'Is It Safe?',
+    why:'The first question in regulated AI deployment is not capability. It is: what happens when the system behaves unexpectedly? Who stops it? Who is accountable? Defining this before a pilot reaches real operations separates responsible adoption from recoverable incidents.',
+    products:[
+      {ico:'🛡️',name:'Mirror Guard',           desc:'Lightweight workflow safety layer — output filtering, boundary rules, and configurable human-in-the-loop triggers.',badge:'prod'},
+      {ico:'👁️',name:'Mirror Sentinel',        desc:'Runtime agent monitoring — detects behavioral drift mid-reasoning chain, intercepts before harmful output reaches operations.',badge:'prod'},
+      {ico:'📋',name:'Workflow Safety Review',  desc:'Consulting: map AI touchpoints, define failure modes, assign human authority boundaries, and design escalation paths.',badge:'svc'},
+      {ico:'🔍',name:'Mirror Vanguard',             desc:'Shadow agent discovery — identifies unauthorized or unregistered AI agents already operating in your environment before governance can begin. Mirror Vanguard or equivalent market tooling provides this baseline inventory.',badge:'dual'},
+    ],
+    engage:'We enter as a safety review engagement — low friction, high credibility. Mirror Guard deploys within the pilot as operational safety equipment: logging, stop/escalate. No platform adoption required at this stage.',
+    up:'→ Safety controls established here become the runtime enforcement foundation at Layer 3.'
+  },
+
+  cost:{
+    layer:'Layer 1 · Safe to Start', cc:'var(--l1)',
+    title:'Will It Cost Too Much?',
+    why:'Many pilots stall not because the technology failed, but because cost could not be forecasted, explained, or justified to leadership. Cost and ROI verification is the first real operational barrier — most teams encounter it before they encounter any governance question.',
+    products:[
+      {ico:'💰',name:'Mirror CostGuard',        desc:'Token-level budget controls, per-project spend limits, real-time usage alerts, and automatic throttling before budgets are exceeded.',badge:'prod'},
+      {ico:'🔀',name:'Mirror Gateway',          desc:'Intelligent model routing — directs inference tasks to the most cost-efficient model without compromising output quality.',badge:'prod'},
+      {ico:'📊',name:'Cost Structure Analysis', desc:'We help teams decompose where AI cost concentrates most: data access, security review, operations, or internal adoption friction.',badge:'svc'},
+      {ico:'🤝',name:'Vendor / Tool Assessment',desc:'Neutral assessment of existing AI tooling costs — where to consolidate, retire, or renegotiate.',badge:'jnt'},
+    ],
+    engage:'This is often the most accessible entry conversation. We ask where cost concentrates, jointly structure the breakdown, and design a cost-controlled pilot. Mirror Gateway + CostGuard demonstrate measurable savings — building a natural path toward governance.',
+    up:'→ Cost visibility at Layer 1 produces the ROI evidence that makes Pilot Assurance approvable at Layer 2.'
+  },
+
+  prove:{
+    layer:'Layer 1 · Safe to Start', cc:'var(--l1)',
+    title:'Can We Prove It?',
+    why:'Regulated industries do not only need AI outputs — they need evidence. When something goes wrong, or when internal audit or regulators ask questions, every agent action must be reconstructable. Capturing evidence from day one is far less costly than attempting to reconstruct it under scrutiny.',
+    products:[
+      {ico:'📒',name:'Mirror Ledger Engine',    desc:'Immutable, hash-chained audit log of every agent action — tamper-evident, regulator-ready, and queryable across time.',badge:'prod'},
+      {ico:'🔏',name:'Evidence Packaging',      desc:'Signed evidence packages (Ed25519) for internal review, audit committees, regulatory submissions, or litigation readiness.',badge:'prod'},
+      {ico:'📁',name:'Audit Readiness Review',  desc:'Consulting: assess current AI logging gaps against regulatory expectations and internal risk management standards.',badge:'svc'},
+    ],
+    engage:'Mirror Ledger introduces passive logging inside any pilot — minimal footprint, immediate audit value. The lowest-resistance entry for compliance-first buyers.',
+    up:'→ Evidence architecture established here becomes the traceability infrastructure at Layer 3 Operational Traceability.'
+  },
+
+  /* LAYER 2 */
+  pilot:{
+    layer:'Layer 2 · Pilot & AI Foundations', cc:'var(--l2)',
+    title:'Pilot Assurance',
+    why:'A pilot that cannot pass internal approval is a pilot that never runs. Many organizations have technical capability but lack the governance structure to get AI initiatives approved, monitored, and expanded. Pilot Assurance is about making AI approvable — not just deployable.',
+    products:[
+      {ico:'✅',name:'Mirror Sentinel',         desc:'Runtime monitoring active during the pilot — behavioral drift detection, mid-chain interception, producing live governance evidence.',badge:'prod'},
+      {ico:'🛡️',name:'Mirror Guard',           desc:'Enforces output boundaries throughout the full pilot lifecycle, not just at initial deployment.',badge:'prod'},
+      {ico:'🗂️',name:'Governance-Ready Pilot Design', desc:'We co-design the internal approval package: scope, safety controls, success metrics, escalation paths, and exit criteria.',badge:'svc'},
+      {ico:'⚔️',name:'Adversarial Readiness',       desc:'Pre-deployment challenge testing and red teaming support — stress-test AI behaviour against adversarial inputs, boundary violations, and policy edge cases before production. Mirror OS provides the governance framework; specialist red teaming tooling from the ecosystem can be engaged for execution.',badge:'svc_eco'},
+    ],
+    engage:'We position as the team that makes pilots approvable — not just technically capable. A Sentinel-monitored pilot generates its own governance evidence, building the case for expansion.',
+    up:'→ Successful Pilot Assurance creates conditions for Layer 3 Runtime Governance at scale.'
+  },
+
+  data:{
+    layer:'Layer 2 · Pilot & AI Foundations', cc:'var(--l2)',
+    title:'Data Readiness',
+    why:'Unresolved data provenance is one of the most common causes of AI pilot failure — not model capability. Without clear data ownership, versioning, and lineage, AI systems produce outputs that cannot be trusted, audited, or scaled. Data readiness is a governance prerequisite, not a data engineering task.',
+    products:[
+      {ico:'🗃️',name:'Data Ownership Clarity',  desc:'Define data ownership boundaries, access rights, and consent frameworks before AI systems touch production data.',badge:'svc'},
+      {ico:'🔖',name:'Dataset Versioning',       desc:'Establish versioning discipline for datasets used in AI training and inference — enabling reproducibility and audit.',badge:'svc'},
+      {ico:'🧠',name:'Mirror Memory',            desc:'Persistent agent context layer — maintains data lineage across sessions with auditable state transitions.',badge:'prod'},
+      {ico:'📒',name:'Mirror Ledger',            desc:'Records data provenance alongside agent actions — creating end-to-end traceability from data source to output.',badge:'prod'},
+      {ico:'🔍',name:'Mirror Vanguard',             desc:'Unregistered AI agents touching production data are an invisible governance risk. Mirror Vanguard or equivalent tooling identifies shadow AI presence before data lineage can be properly established.',badge:'dual'},
+    ],
+    engage:'We typically begin with a data readiness assessment before recommending model or deployment strategy. Mirror Memory and Ledger provide the technical layer that makes data governance operationally enforced rather than just documented.',
+    up:'→ Clean data lineage at Layer 2 enables credible Operational Traceability at Layer 3.'
+  },
+
+  model:{
+    layer:'Layer 2 · Pilot & AI Foundations', cc:'var(--l2)',
+    title:'Model Strategy',
+    why:'Choosing the wrong model, or routing all tasks through the same model, creates unnecessary cost, latency, and governance complexity. Model strategy is about designing a routing architecture that matches task requirements to model capability — and remains governable as the portfolio grows.',
+    products:[
+      {ico:'🎯',name:'Model Selection',          desc:'Framework for evaluating and selecting models based on task requirements, cost profile, latency, and governance constraints.',badge:'svc'},
+      {ico:'🔀',name:'Mirror Gateway',           desc:'Intelligent model routing — directs inference to the right model at runtime based on task type, cost ceiling, and policy rules.',badge:'prod'},
+      {ico:'👁️',name:'Mirror Sentinel',         desc:'Monitors agent behaviour across model boundaries — detects drift when models are swapped or upgraded.',badge:'prod'},
+      {ico:'🤖',name:'Agent Orchestration Design',desc:'Design of multi-agent workflows with clear authority boundaries, delegation rules, and escalation logic.',badge:'svc'},
+    ],
+    engage:'We bring model strategy as a neutral advisory engagement — not tied to any specific model vendor. Mirror Gateway then operationalises the routing strategy with governance built in.',
+    up:'→ Governed model routing at Layer 2 becomes enforceable policy at Layer 3 Policy Enforcement.'
+  },
+
+  compute:{
+    layer:'Layer 2 · Pilot & AI Foundations', cc:'var(--l2)',
+    title:'Compute & Cost Architecture',
+    why:'Without deliberate compute architecture, AI pilots create unmanaged infrastructure burn — and lose executive support before governance structures are even needed. Cost architecture is not just financial discipline; it is what keeps AI initiatives alive long enough to prove value.',
+    products:[
+      {ico:'🖥️',name:'Compute Planning',        desc:'Right-size compute requirements before deployment — avoid over-provisioning and infrastructure sprawl.',badge:'svc'},
+      {ico:'🔀',name:'Mirror Gateway',           desc:'Inference routing that optimises for cost alongside quality — automatic task-to-model matching based on cost ceilings.',badge:'prod'},
+      {ico:'💰',name:'Mirror CostGuard',         desc:'Real-time cost monitoring, budget enforcement, and spend reporting across all AI initiatives and models.',badge:'prod'},
+      {ico:'📈',name:'Cost Optimisation Review', desc:'Ongoing review of inference costs as usage scales — identifying routing efficiency improvements over time.',badge:'jnt'},
+    ],
+    engage:'Cost architecture often becomes the entry point for teams that are technically capable but lack spend visibility. Mirror Gateway + CostGuard provide immediate, demonstrable ROI — often funding further governance investment.',
+    up:'→ Cost governance at Layer 2 feeds directly into the unified cost and evidence fabric at Layer 4.'
+  },
+
+  /* LAYER 3 */
+  policy:{
+    layer:'Layer 3 · Runtime Governance', cc:'var(--l3)',
+    title:'Policy Enforcement',
+    why:'There is a significant gap between having an AI policy document and enforcing it at runtime. Most governance frameworks exist as intent. When AI agents are operating in production, enforcement must happen at execution time — before harmful outputs are generated, not after they appear on a monitoring dashboard.',
+    products:[
+      {ico:'⚖️',name:'Mirror Sentinel',              desc:'Runtime policy enforcement — Kill Switch and Circuit Breaker that stop, escalate, or reroute agents when policies are violated mid-reasoning. <em>Most tools flag after output. Mirror Sentinel intervenes during operation.</em>',badge:'prod'},
+      {ico:'📜',name:'Mirror OS Policy Layer',        desc:'Claim Taxonomy (A/B/C/D) — structured policy definitions that map directly to enforcement actions, not monitoring flags.',badge:'prod'},
+      {ico:'🔴',name:'Circuit Breaker / Kill Switch', desc:'Configurable deployment boundaries — automatic agent suspension when behavioral thresholds are crossed, before harmful output is completed.',badge:'prod'},
+      {ico:'🏗️',name:'Policy-to-Control Design',     desc:'Translate internal AI policies, risk appetite, and regulatory requirements into enforceable runtime rules — not documentation. ',badge:'svc'},
+      {ico:'🗺️',name:'Regulatory Control Mapping',   desc:'Map regulatory requirements (EU AI Act, FSA, DORA, NIST AI RMF, sector-specific) to specific Mirror OS enforcement controls and evidence outputs. ',badge:'svc'},
+      {ico:'🛡️',name:'Runtime Guardrails',             desc:'Mirror Guard provides always-on execution boundaries — input filtering, output containment, stop/escalate/reroute controls, and human override triggers. Guardrails are not a feature layer; they are the runtime manifestation of your policy baseline.',badge:'prod'},
+    ],
+    engage:'This layer addresses the gap between compliance documentation and operational reality. We translate policy intent into runtime behaviour through Policy-to-Control Design — then give risk and compliance teams signed evidence that enforcement is actually working.',
+    up:'→ Enforced runtime policy and regulatory control mapping become components of the unified Enterprise AI Governance fabric at Layer 4.'
+  },
+
+  trace:{
+    layer:'Layer 3 · Runtime Governance', cc:'var(--l3)',
+    title:'Operational Traceability',
+    why:'Every AI agent decision needs a chain of custody. What was decided, by which model, under which policy, with what context, at what time, and who held accountable authority. Without this, operational risk cannot be managed, audits cannot be satisfied, and incidents cannot be contained or explained.',
+    products:[
+      {ico:'📒',name:'Mirror Ledger Engine',     desc:'Full hash-chain evidence trail across all agent sessions — partitioned, tamper-evident, queryable across time, model, and initiative.',badge:'prod'},
+      {ico:'🧠',name:'Mirror Memory',            desc:'Cognitive continuity layer — persistent agent context across sessions with auditable state transitions and drift detection.',badge:'prod'},
+      {ico:'📊',name:'Mirror IOP Governance Platform', desc:'Operational governance platform — RBAC, 2FA, FastAPI endpoints, React dashboard. The operational interface for compliance and risk teams.',badge:'prod'},
+    ],
+    engage:'Traceability becomes the primary request from risk and compliance teams once a pilot succeeds and is being considered for expansion. Mirror Ledger + IOP provide the infrastructure to scale governance from one pilot to enterprise-wide.',
+    up:'→ Operational traceability at scale is a foundational component of Layer 4 Enterprise AI Governance.'
+  },
+
+  /* LAYER 4 */
+  gov:{
+    layer:'Layer 4 · Enterprise AI Governance', cc:'var(--l4)',
+    title:'Enterprise AI Governance',
+    why:'Every entry point, every pilot, every cost control, every safety check — all of them converge here. Mirror OS is not a tool to adopt alongside others. It is the unified trust, control, and evidence fabric that gives enterprises the ability to govern AI across agents, models, teams, and jurisdictions — without replacing existing infrastructure.',
+    products:[
+      {ico:'⬡',name:'Mirror OS Core',                    desc:'Behavioral Governance Layer — Observable, Auditable, Reconstructable. Vendor-neutral infrastructure above any AI model or agent runtime.',badge:'prod'},
+      {ico:'🔐',name:'Mirror Trust Layer',                desc:'Enterprise-grade governance: behavioral autonomy controls, cognitive continuity management, and signed evidence orchestration.',badge:'prod'},
+      {ico:'🌐',name:'Mirror Gateway',                    desc:'Unified model routing, cost governance, and operational visibility at enterprise scale across all initiatives.',badge:'prod'},
+      {ico:'🏛️',name:'Enterprise Governance Architecture',desc:'Design of the cross-initiative governance operating model — control fabric, evidence architecture, accountability structures, and escalation boundaries at enterprise scale. ',badge:'svc'},
+      {ico:'🗺️',name:'Operating Model Alignment',        desc:'Align Mirror OS governance controls to existing compliance programs, risk frameworks, and internal operating structures. No rip-and-replace. ',badge:'svc'},
+    ],
+    engage:'Mirror OS is not positioned as a day-one full platform. It is where clients naturally arrive as their AI footprint grows. Every module adopted is already part of this fabric — the upgrade is recognition, not replacement. Enterprise Governance Architecture service ensures the operating model grows with the deployment.',
+    up:'→ This is the convergence destination. All lower-layer engagements are already components of this operating model.'
+  }
+};
+
+/* ─── PATHWAYS ─── */
+const PATHS = {
+  safety:   ['c-safe',  'c-pilot',  'c-policy',  'c-gov'],
+  cost:     ['c-cost',  'c-compute','c-trace',   'c-gov'],
+  evidence: ['c-prove', 'c-data',   'c-trace',   'c-gov'],
+  scoping:  ['c-start', 'c-pilot',  'c-policy',  'c-gov'],
+};
+
+/* Emory Layer Illumination — hi=full bright, half=semi-lit, dim=suppress */
+const ILLUMINATE = {
+  safety: {
+    hi:   ['c-safe',  'c-policy', 'c-gov'],
+    half: ['c-pilot', 'c-data',   'c-model',   'c-compute'],
+    dim:  ['c-start', 'c-cost',   'c-prove',   'c-trace'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-half', 'lr-3':'row-lit', 'lr-4':'row-lit' }
+  },
+  cost: {
+    hi:   ['c-cost',  'c-compute', 'c-gov'],
+    half: ['c-pilot', 'c-data',    'c-model',   'c-policy', 'c-trace'],
+    dim:  ['c-start', 'c-safe',    'c-prove'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-lit', 'lr-3':'row-half', 'lr-4':'row-lit' }
+  },
+  evidence: {
+    hi:   ['c-prove', 'c-data',   'c-trace',   'c-gov'],
+    half: ['c-pilot', 'c-model',  'c-compute'],
+    dim:  ['c-start', 'c-safe',   'c-cost',    'c-policy'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-lit', 'lr-3':'row-lit', 'lr-4':'row-lit' }
+  },
+  scoping: {
+    hi:   ['c-start', 'c-pilot',  'c-gov'],
+    half: ['c-safe',  'c-cost',   'c-prove',   'c-data', 'c-model', 'c-compute', 'c-policy'],
+    dim:  ['c-trace'],
+    rows: { 'lr-1':'row-lit', 'lr-2':'row-lit', 'lr-3':'row-half', 'lr-4':'row-lit' }
+  }
+};
+let activePath = null;
+
+function setPath(k) {
+  if (activePath === k) { clearPath(); return; }
+  activePath = k;
+  document.querySelectorAll('.p-btn:not(.clear)').forEach(b=>b.classList.remove('active'));
+  document.getElementById('pb-'+k).classList.add('active');
+
+  const ill = ILLUMINATE[k];
+  const hiSet   = new Set(ill.hi);
+  const halfSet = new Set(ill.half);
+
+  // Apply card states
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.remove('hi','half','dim');
+    if      (hiSet.has(c.id))   c.classList.add('hi');
+    else if (halfSet.has(c.id)) c.classList.add('half');
+    else                         c.classList.add('dim');
+  });
+
+  // Apply layer row states
+  ['lr-1','lr-2','lr-3','lr-4'].forEach(id=>{
+    const row = document.getElementById(id);
+    if (!row) return;
+    row.classList.remove('row-lit','row-half','row-dim');
+    row.classList.add(ill.rows[id] || 'row-dim');
+  });
+}
+
+function clearPath() {
+  activePath=null;
+  document.querySelectorAll('.p-btn:not(.clear)').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('hi','half','dim'));
+  ['lr-1','lr-2','lr-3','lr-4'].forEach(id=>{
+    const row = document.getElementById(id);
+    if (row) row.classList.remove('row-lit','row-half','row-dim');
+  });
+}
+
+/* ─── MODAL ─── */
+function open_modal(k) {
+  const d=D[k]; if(!d) return;
+  const bl={prod:'Our Product',svc:'Our Service',jnt:'Joint / Advisory',eco:'Ecosystem',dual:'dual',svc_eco:'svc_eco'};
+  const bc={prod:'b-prod',     svc:'b-svc',      jnt:'b-jnt',     eco:'b-eco',     dual:'b-dual',     svc_eco:'b-svc_eco'};
+
+  const rows=d.products.map(p=>`
+    <div class="p-row">
+      <span class="p-ico">${p.ico}</span>
+      <div class="p-info">
+        <div class="p-name" style="color:${d.cc}">${p.name}</div>
+        <div class="p-desc">${p.desc}</div>
+        <div style="margin-top:6px;">
+          ${p.badge==='dual'
+            ? '<span class="p-badge b-prod">Our Product</span><span class="p-badge b-eco" style="margin-left:4px;">Ecosystem</span>'
+            : p.badge==='svc_eco'
+            ? '<span class="p-badge b-svc">Our Service</span><span class="p-badge b-eco" style="margin-left:4px;">Ecosystem</span>'
+            : '<span class="p-badge '+bc[p.badge]+'">'+(bl[p.badge]||p.badge)+'</span>'}
+        </div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('modal-accent').style.background=
+    `linear-gradient(90deg,transparent,${d.cc},transparent)`;
+
+  document.getElementById('modal-body').innerHTML=`
+    <div class="m-layer" style="color:${d.cc}">${d.layer}</div>
+    <div class="m-title">${d.title}</div>
+    <div class="m-why">${d.why}</div>
+    <div class="m-sec">
+      <div class="m-sec-title">What sits behind this block</div>
+      ${rows}
+    </div>
+    <div class="m-sec">
+      <div class="m-sec-title">How we engage</div>
+      <div class="m-box">${d.engage}</div>
+    </div>
+    <div class="m-sec" style="margin-bottom:0">
+      <div class="m-sec-title">Connects upward</div>
+      <div class="m-up">${d.up}</div>
+    </div>`;
+
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function close_modal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function handle_overlay(e){
+  if(e.target===document.getElementById('overlay')) close_modal();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape') close_modal();});
+
+function showModuleOverlay() {
+  document.getElementById('mod-overlay').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+function hideModuleOverlay() {
+  document.getElementById('mod-overlay').classList.remove('visible');
+  document.body.style.overflow = '';
+}
+// ESC key closes overlay
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') hideModuleOverlay();
+});
+
+</script>
+
+<!-- Mirror OS Module Overlay -->
+<div id="mod-overlay">
+  <button class="mo-close" onclick="hideModuleOverlay()">← Back to Framework</button>
+  <div class="mo-header">
+    <div class="mo-title">Mirror OS Platform</div>
+    <div class="mo-subtitle">Models in Each Layer</div>
+  </div>
+  
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l4)">Layer 4</span>
+        <span class="mo-layer-name" style="color:var(--l4)">Enterprise AI Governance</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror OS Core</span>
+          </div>
+          <div class="mo-mod-role">Platform runtime substrate — orchestrates all governance modules across the enterprise stack.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Trust Layer</span>
+          </div>
+          <div class="mo-mod-role">Unified trust, accountability, and evidence fabric — the final governance envelope across all AI initiatives.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror Gateway</span>
+          </div>
+          <div class="mo-mod-role">Model routing and cost governance — routes AI workloads with full cost and compliance visibility at enterprise scale.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">Continuous behavioural monitoring — ensures all agents across the enterprise remain within defined governance boundaries.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Ledger Engine</span>
+          </div>
+          <div class="mo-mod-role">Tamper-evident audit chain — reconstructable evidence record for every AI decision across the organisation.</div>
+        </div>
+      </div>
+    </div>
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l3)">Layer 3</span>
+        <span class="mo-layer-name" style="color:var(--l3)">Runtime Governance</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">Detects behavioural drift mid-reasoning chain — intercepts before harmful output reaches operations.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Guard</span>
+          </div>
+          <div class="mo-mod-role">Runtime guardrails — enforces output boundaries, stop/escalate/reroute controls, and human override triggers.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror OS Policy Layer</span>
+          </div>
+          <div class="mo-mod-role">Translates governance policy into runtime enforcement rules — policies that actually stop and reroute agents.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Circuit Breaker/Kill Switch</span>
+          </div>
+          <div class="mo-mod-role">Hard-stops AI execution when policy thresholds are exceeded — the last line of automated defence.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Ledger Engine</span>
+          </div>
+          <div class="mo-mod-role">Records every policy decision and enforcement action — chain-of-custody for runtime governance events.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Memory</span>
+          </div>
+          <div class="mo-mod-role">Maintains governed context continuity — ensures agents operate with evidence-linked, auditable memory across sessions.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror IOP</span>
+          </div>
+          <div class="mo-mod-role">Inter-operator governance platform — manages cross-system AI interactions with defined authority boundaries.</div>
+        </div>
+      </div>
+    </div>
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l2)">Layer 2</span>
+        <span class="mo-layer-name" style="color:var(--l2)">Pilot & AI Foundations</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">Runtime monitoring active during the pilot — generates live governance evidence from day one of deployment.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Guard</span>
+          </div>
+          <div class="mo-mod-role">Enforces output boundaries throughout the full pilot lifecycle, not just at initial deployment.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot evid"></span>
+            <span class="mo-mod-name">Mirror Memory</span>
+          </div>
+          <div class="mo-mod-role">Establishes governed data lineage — every AI interaction during the pilot is traceable and reproducible.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror Gateway</span>
+          </div>
+          <div class="mo-mod-role">Model routing strategy — selects the right model for the right task with cost and governance visibility from day one.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror CostGuard</span>
+          </div>
+          <div class="mo-mod-role">Compute cost control — prevents unmanaged inference burn during pilot experimentation phases.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot intl"></span>
+            <span class="mo-mod-name">Mirror Vanguard</span>
+          </div>
+          <div class="mo-mod-role">Shadow agent discovery — identifies unregistered AI agents touching pilot data before governance can be established.</div>
+        </div>
+      </div>
+    </div>
+    <div class="mo-layer">
+      <div class="mo-layer-header" style="background:linear-gradient(90deg,rgba(255,255,255,0.03),transparent);">
+        <span class="mo-layer-num" style="color:var(--l1)">Layer 1</span>
+        <span class="mo-layer-name" style="color:var(--l1)">Safe to Start</span>
+      </div>
+      <div class="mo-modules">
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Guard</span>
+          </div>
+          <div class="mo-mod-role">Lightweight workflow safety layer — output filtering, boundary rules, and human-in-the-loop triggers for early-stage deployments.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ctrl"></span>
+            <span class="mo-mod-name">Mirror Sentinel</span>
+          </div>
+          <div class="mo-mod-role">Early behavioural monitoring — establishes the baseline for what normal agent behaviour looks like before scale.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot ops"></span>
+            <span class="mo-mod-name">Mirror Gateway</span>
+          </div>
+          <div class="mo-mod-role">Immediate model routing and cost visibility — prevents scope creep and unmanaged spend from the first use case.</div>
+        </div>
+        <div class="mo-module">
+          <div class="mo-mod-top">
+            <span class="mo-dot intl"></span>
+            <span class="mo-mod-name">Mirror Vanguard</span>
+          </div>
+          <div class="mo-mod-role">Discovers unauthorised AI agents already operating — you cannot govern what you cannot see.</div>
+        </div>
+      </div>
+    </div>
+  <div class="mo-legend">
+    <div class="mo-leg-item"><span class="mo-dot ctrl" style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>Control</div>
+    <div class="mo-leg-item"><span class="mo-dot evid" style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>Evidence</div>
+    <div class="mo-leg-item"><span class="mo-dot ops"  style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>Operations</div>
+    <div class="mo-leg-item"><span class="mo-dot intl" style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>Intelligence</div>
+  </div>
+</div>
+
+</body>
+</html>
