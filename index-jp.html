@@ -619,6 +619,26 @@ body::before {
 }
 .mo-trigger-icon{ font-size:13px; }
 
+
+/* ── iPad two-tap preview ── */
+@media (hover: none) and (pointer: coarse) {
+  .card.tap-preview {
+    border-color: rgba(56,189,248,0.6) !important;
+    background: rgba(56,189,248,0.08) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transition: all 0.15s;
+  }
+  .card.tap-preview .c-title::after {
+    content: ' › もう一度タップ';
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(56,189,248,0.55);
+    font-family: 'Courier New', monospace;
+    font-weight: 400;
+  }
+}
+
 </style>
 
   <script>
@@ -1347,6 +1367,48 @@ document.addEventListener('keydown', function(e) {
     <div class="mo-leg-item"><span class="mo-dot intl" style="display:inline-block;width:7px;height:7px;border-radius:50%;"></span>インテリジェンス</div>
   </div>
 </div>
+
+
+<script>
+// ── iPad Two-Tap: first tap = preview, second tap = open ──────────────────
+(function() {
+  if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+  let activeCard = null;
+
+  function clearActive() {
+    if (activeCard) {
+      activeCard.classList.remove('tap-preview');
+      activeCard = null;
+    }
+  }
+
+  document.addEventListener('touchstart', function(e) {
+    if (activeCard && !activeCard.contains(e.target)) clearActive();
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    if (e.target.closest('.mo-trigger, .mo-close, .p-btn, .baseline')) return;
+
+    const card = e.target.closest('.card');
+    if (!card) return;
+
+    if (activeCard === card) {
+      clearActive();
+      return;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+    clearActive();
+    activeCard = card;
+    card.classList.add('tap-preview');
+
+    setTimeout(() => { if (activeCard === card) clearActive(); }, 3000);
+
+  }, { passive: false });
+})();
+</script>
 
 </body>
 </html>
